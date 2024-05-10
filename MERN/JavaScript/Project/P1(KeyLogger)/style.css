@@ -1,0 +1,62 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0px;
+}
+.title{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+.stitle{
+    font-size: 18px;
+    margin: 20px 0px;
+}
+.btn{
+    display: flex;
+    gap: 20px;
+    margin: 10px 0px;
+}
+#sbtn1{
+    width: 250px;
+    height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#sbtn2{
+    width: 250px;
+    height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn{
+    display: flex;
+    gap: 20px;
+    margin: 10px 0px; 
+}
+#pbtn1{
+    width: 500px;
+    height: 60px;
+    font-size: 20px;
+    background: #ffa500;
+    border:none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+:hover#pbtn1{
+    background: #ffa600a6;
+}
+#pbtn2{
+    width: 500px;
+    height: 60px;
+    font-size: 20px;
+    background: #808080;
+    border:none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+:hover#pbtn2{
+    background: #808080b0;
+}

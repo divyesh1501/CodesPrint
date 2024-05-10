@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dark {
+    background: #fff;
+    padding: 50px 100px;
+}
+
+.banner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100vh;
+    background: #fff;
+    transition: 0.5s;
+    height: 100vh;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    padding: 20px 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: linear-gradient(to right, #00C0FD, #E70FAA);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2em;
+    font-weight: 800;
+    transition: 0.5s;
+}
+
+header ul {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #42446E;
+    transition: 0.5s;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 490px;
+    justify-content: space-between;
+}
+
+.hero-section .img {
+    position: relative;
+    height: 41.5vh;
+    width: 42vh;
+    background: linear-gradient(to right, #00C0FD, #E70FAA);
+    border-radius: 50%;
+}
+
+.hero-section img {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    height: 40vh;
+    width: 40vh;
+    background: linear-gradient(to right, #00C0FD, #E70FAA);
+    border-radius: 50%;
+}
+
+.content {
+    position: relative;
+}
+
+.content h3 {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5em;
+    color: #42446E;
+    transition: 0.5s;
+}
+
+.content h3 #name {
+    background: linear-gradient(to right, #00C0FD, #E70FAA);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content #text {
+    background: linear-gradient(to right, #00C0FD, #E70FAA);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content .slogan {
+    font-size: 1.2em;
+    color: #666;
+    margin: 10px 0;
+    transition: 0.5s;
+}
+
+.content button {
+    position: relative;
+    background: linear-gradient(to right, #00C0FD, #E70FAA);
+    color: #fff;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    margin-right: 20px;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.content button.chat {
+    background: transparent;
+    color: #333;
+}
+
+.dayNight {
+    position: absolute;
+    font-size: 1.2em;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.dayNight i:nth-child(2),
+body.night .dayNight i:nth-child(1) {
+    display: none;
+}
+
+body.night .dayNight i:nth-child(2) {
+    display: block;
+}
+
+body.night .dark {
+    background: #333;
+}
+
+body.night .dayNight {
+    color: #fff;
+    background: #444;
+}
+
+body.night header .logo,
+body.night header ul li a,
+body.night .content h3,
+body.night .content p,
+body.night .content button.chat {
+    color: #fff;
+}
+
+/* section-2 */
+
+.tech-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tech-stack h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #42446E;
+
+}
+
+.tech-stack p {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 500;
+    color: #666;
+}
+
+.tech-stack .tech-img {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    grid-row-gap: 50px;
+    grid-column-gap: 240px;
+}
+
+.tech-stack .tech-img img {
+    height: 10vh;
+}
+
+body.night .tech .tech-stack h1,
+body.night .tech .tech-stack p {
+    color: #fff;
+}
+
+/* section-3 */
+
+.project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-section h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #42446E;
+
+}
+
+.project-section p {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 500;
+    color: #666 !important;
+}
+
+.project-section .project-card {
+    display: grid;
+    grid-template-columns: repeat(3, 301px);
+    grid-column-gap: 213px;
+    grid-row-gap: 50px;
+}
+
+.project-section .projects {
+    display: flex;
+    flex-direction: column;
+    align-items: unset !important;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.project-section .projects p {
+    text-align: unset;
+    font-size: 0.9em;
+}
+
+.project-section .projects .project-text {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 20px;
+    gap: 10px;
+}
+
+.project-section .projects .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-section .projects .project-text .links p {
+    cursor: pointer;
+    color: #000000 !important;
+}
+
+.project-section .projects .project-text .links p:hover {
+    text-decoration: underline;
+}
+
+.project-section .projects img {
+    border-radius: 20px 20px 0px 0px;
+    width: 19.6vw;
+}
+
+body.night .project .project-section h1,
+body.night .project .project-section p {
+    color: #fff !important;
+}
+
+body.night .project .project-section .projects .project-text p {
+    color: #666 !important;
+}
+
+body.night .project .project-section .projects .project-text .links p {
+    color: #000000 !important;
+}
+
+/* section-4 */
+
+.footer .logo {
+    display: flex;
+    flex-direction: column;
+    color: #42446E;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 800;
+    transition: 0.5s;
+}
+
+.footer .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .contact .contact-info {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .contact .contact-info p a {
+    text-decoration: none;
+    color: #42446E;
+}
+
+.footer .contact .contact-info .social-info {
+    font-size: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .contact .contact-info .social-info a {
+    text-decoration: none;
+    color: #42446E;
+}
+
+hr {
+    margin: 20px 0px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+}
+
+.footer-info ul {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.footer-info ul li {
+    list-style: none;
+}
+
+.footer-info li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #42446E;
+    transition: 0.5s;
+}
+
+.footer-info p {
+    color: #666;
+}
+
+.footer-info .owner span {
+    font-weight: 600;
+    background: linear-gradient(to right, #00C0FD, #E70FAA);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+body.night .footer .contact a,
+body.night .footer .contact .contact-info p a, 
+body.night .footer .contact .contact-info .social-info a,
+body.night .footer .footer-info ul li a,
+body.night .footer .footer-info p {
+    color: #fff !important;
+}

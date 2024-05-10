@@ -1,0 +1,45 @@
+.main {
+    position: absolute;
+    top: -51%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+h4{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    padding: 10px 0;
+}
+.top,
+.bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0 10px 0;
+}
+.block,
+input,
+button {
+    width: 80%;
+    border-radius: 5px;
+}
+select{
+    width: 100%;
+    border-radius: 5px;
+
+}
+.canvas {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.top .block {
+    margin: 10px;
+}
+.bottom button {
+    margin: 10px;
+}
+.block p {
+    margin: 10px auto;
+    width: 50%;
+}

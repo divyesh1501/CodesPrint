@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cart</title>
+</head>
+
+<body>
+    <!-- Header  -->
+    <header>
+        <div class="bg-black h-[38px] flex items-center justify-center sm:flex sm:items-center md:block">
+            <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
+                <h1 class="flex-1 text-nowrap text-xs md:text-sm font-normal text-center">Sign up and get 20% off to
+                    your first
+                    order.<span class="underline" role='button'>Sign Up Now</span>
+                </h1>
+                <p class="hidden md:block lg:block" role='button'>
+                    <i class="fa-solid fa-xmark md:h-auto md:w-auto h-4 w-4"></i>
+                    <!-- <X class='' /> -->
+                </p>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <div class='flex items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3'>
+            <div class=" flex-1 ">
+                <nav class="flex gap-5 text-black items-center flex-wrap">
+                    <div class="flex items-center">
+                        <span class=" lg:hidden block md:text-4xl mr-2" onClick="toggleHeader()">
+                            <!-- <Menu /> -->
+                            <i class="fa-solid fa-bars"></i>
+                        </span>
+                        <a class="flex-1 logo md:text-4xl text-xl  font-bold flex items-center gap-2"
+                            href="../HomePage/HomePage.html">SHOP.CO</a>
+                    </div>
+                    <!-- Togglebar  -->
+
+                    <div class="w-full flex-grow lg:flex lg:items-center items-center lg:w-auto hidden ">
+                        <div class="flex gap-5 lg:flex-row lg:items-center flex-col">
+                            <a href="#responsive-header"
+                                class="block mt-4 lg:inline-block text-base font-normal lg:mt-0">
+                                <div class="flex">
+                                    <div class="group relative cursor-pointer">
+
+                                        <div class="flex justify-between lg:space-x-5 bg-white">
+                                            <a
+                                                class="menu-hover text-base text-black lg:mx-4 flex items-center lg:pb-6">
+                                                Shop
+                                                <span class="fa-solid fa-angle-down"></span>
+                                            </a>
+                                        </div>
+
+                                        <div
+                                            class="invisible absolute z-50 flex items-center w-full flex-col bg-gray-100 py-1 px-10 text-gray-800 shadow-xl group-hover:visible">
+
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                                href="../CategoryPage/CategoryPage.html">
+                                                Men
+                                            </a>
+
+                                            <a
+                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+                                                Woman
+                                            </a>
+
+                                            <a
+                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+                                                Kids
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#sale" class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4">
+                                On Sale
+                            </a>
+                            <a href="#newarrival"
+                                class="link block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 ">
+                                New Arrivals
+                            </a>
+                            <a href="#brand" class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4">
+                                Brands
+                            </a>
+                        </div>
+                    </div>
+
+                </nav>
+
+            </div>
+            <div class="flex gap-3 items-center justify-center">
+                <div class="relative  hidden lg:block" id='search'>
+                    <input type="text"
+                        class="bg-gray-200 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline"
+                        placeholder="Search for products..." />
+                    <div class="absolute top-0 right-0 mt-2">
+                        <i
+                            class="fa-solid fa-magnifying-glass md:text-xl text-lg text-gray-400 cursor-pointer mr-3"></i>
+                    </div>
+                </div>
+                <button class="text-black block lg:hidden">
+                    <a href="#search">
+                        <i class="fa-solid fa-magnifying-glass md:text-2xl text-lg"></i>
+                    </a>
+                </button>
+                <button class="text-black">
+                    <a href="../Cart/Cart.html">
+                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg"></i>
+                    </a>
+                </button>
+                <button class="text-black">
+                    <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
+                </button>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Cart-Section -->
+    <section class='md:mx-5 lg-mx-5 xl:mx-auto sm:max-w-7xl md:max-w-7xl lg:max-w-7xl mx-3 mt-6'>
+        <hr class='md:my-6 my-4' />
+
+        <p class='flex items-center gap-2 capitalize md:text-base text-xs text-gray-500' role='button'>
+            <a href="../HomePage/HomePage.html">home</a>
+            <i class="fa-solid fa-angle-right"></i>
+            <span class='text-black'>cart</span>
+        </p>
+
+        <div class='my-6'>
+            <h1 class='font-black md:text-4xl text-2xl uppercase'>your cart</h1>
+            <div class='flex justify-between md:gap-10 lg:gap-5 flex-col md:flex-col lg:flex-row '>
+
+                <div class='border rounded-xl md:p-5 p-2 md:my-6 my-4'>
+                    <div class='flex md:gap-5 gap-2 '>
+                        <img src="images/C1.png" alt=""
+                            class='md:h-[22vh] md:w-[12vw] lg:h-[15vh] lg:w-[8vw] h-[20vh] w-[25vw] rounded-xl' />
+                        <div class=''>
+                            <div class='flex space-x-14 md:space-x-80 lg:space-x-44 '>
+                                <p class='capitalize font-semibold md:text-base text-xs' role="button">gradiant graphic
+                                    t-shirt
+                                </p>
+                                <p>
+                                    <i class="fa-regular fa-trash-can text-lg" style="color: #ff0000;"
+                                        role="button"></i>
+                                </p>
+                            </div>
+                            <p class='capitalize lg:text-base text-xs'>size: <span class='text-gray-500'>large</span>
+                            </p>
+                            <p class='capitalize md:text-base text-xs'>color: <span class='text-gray-500'>white</span>
+                            </p>
+                            <div class='flex'>
+                                <p class='md:text-lg text-sm font-semibold flex-1 cur'>$145</p>
+                                <input
+                                    class='flex md:gap-5 gap-3 bg-gray-200 font-semibold md:p-2 p-1 rounded-full md:text-sm text-xs placeholder-black w-20 outline-none cursor-pointer'
+                                    placeholder='-      1     +' />
+                            </div>
+                        </div>
+                    </div>
+                    <hr class='md:my-6 my-4' />
+                    <div class='flex md:gap-5 gap-2 '>
+                        <img src="images/C2.png" alt=""
+                            class='md:h-[22vh] md:w-[12vw] lg:h-[15vh] lg:w-[8vw] h-[20vh] w-[25vw]  rounded-xl' />
+                        <div>
+                            <div class='flex space-x-24 md:space-x-96 lg:space-x-60'>
+                                <p class='capitalize font-semibold md:text-base text-xs'>checkered shirt</p>
+                                <p>
+                                    <i class="fa-regular fa-trash-can text-lg" style="color: #ff0000;"
+                                        role="button"></i>
+                                </p>
+                            </div>
+                            <p class='capitalize md:text-base text-xs'>size: <span class='text-gray-500'>medium</span>
+                            </p>
+                            <p class='capitalize md:text-base text-xs'>color: <span class='text-gray-500'>red</span></p>
+                            <div class='flex'>
+                                <p class='md:text-lg text-sm font-semibold flex-1'>$180</p>
+                                <input
+                                    class='flex md:gap-5 gap-3 bg-gray-200 font-semibold md:p-2 p-1 rounded-full md:text-sm text-xs placeholder-black w-20 outline-none cursor-pointer'
+                                    placeholder='-      1     +' />
+                            </div>
+                        </div>
+                    </div>
+                    <hr class='md:my-6 my-4' />
+                    <div class='flex md:gap-5 gap-2 '>
+                        <img src="images/C3.png" alt=""
+                            class='md:h-[22vh] md:w-[12vw] lg:h-[15vh] lg:w-[8vw] h-[20vh] w-[25vw]  rounded-xl' />
+                        <div>
+                            <div class='flex space-x-24 md:space-x-96 lg:space-x-60'>
+                                <p class=' capitalize font-semibold md:text-base text-xs'>skinny fit jeans</p>
+                                <p class=''>
+                                    <i class="fa-regular fa-trash-can text-lg" style="color: #ff0000;"
+                                        role="button"></i>
+                                </p>
+                            </div>
+                            <p class='capitalize md:text-base text-xs'>size: <span class='text-gray-500'>large</span>
+                            </p>
+                            <p class='capitalize md:text-base text-xs'>color: <span class='text-gray-500'>blue</span>
+                            </p>
+                            <div class='flex'>
+                                <p class='md:text-lg text-sm font-semibold flex-1'>$240</p>
+                                <input
+                                    class='flex md:gap-5 gap-3 bg-gray-200 font-semibold md:p-2 p-1 rounded-full md:text-sm text-xs placeholder-black w-20 outline-none cursor-pointer'
+                                    placeholder='-      1     +' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout-Section -->
+                <div class=''>
+                    <div class='capitalize border rounded-xl p-5 md:my-6'>
+                        <h2 class='font-bold md:text-xl text-lg '>order summary</h2>
+                        <div class='flex items-center  md:my-6 my-4'>
+                            <p class='text-gray-500 md:text-base text-xs flex-1'>subtotal</p>
+                            <p class='md:text-base text-xs'>$565</p>
+                        </div>
+                        <div class='flex items-center  md:my-6 my-4'>
+                            <p class='text-gray-500 md:text-base text-xs flex-1'>discount(-20%)</p>
+                            <p class='text-red-500 md:text-base text-xs'>-$113</p>
+                        </div>
+                        <div class='flex items-center md:my-6 my-4'>
+                            <p class='text-gray-500 md:text-base text-xs flex-1'>delivery fee</p>
+                            <p class='md:text-base text-xs'>$015</p>
+                        </div>
+                        <hr class='md:my-6 my-4' />
+                        <div class='flex items-center md:my-6 my-4'>
+                            <p class='text-gray-500 md:text-base text-xs flex-1'>total</p>
+                            <p class='md:text-base text-xs'>$467</p>
+                        </div>
+                        <div class='flex justify-center md:gap-9 gap-1  md:my-6 my-4'>
+                            <input type="text" name="" id="" placeholder='Add promo code'
+                                class='bg-slate-200 p-2 rounded-full text-center w-80 outline-none' />
+                            <button type="submit"
+                                class='bg-black md:p-2 p-3 rounded-full text-center text-white capitalize w-32 md:text-base text-xs'>apply</button>
+                        </div>
+                        <div class='flex items-center gap-9  md:my-6 my-4'>
+                            <button type="submit"
+                                class='bg-black p-3 rounded-full  text-white md:text-base text-xs capitalize w-full grid place-content-center items-center'>
+                                <p class='flex items-center gap-2'>go to checkout
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer  -->
+     <footer class="bg-slate-100 font-[sans-serif] mt-32">
+        <div class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3'>
+            <div class="relative">
+                <div
+                    class=' flex flex-col sm:flex-row  items-center md:px-10 lg:px-20 py-4 md:gap-3 lg:gap-28 gap-5 bg-black rounded-xl top-[-100px] text-center absolute'>
+                    <div>
+                        <h1 class='uppercase text-sm md:text-xl lg:text-3xl font-black  md:py-12 md:flex-1 text-white'>
+                            stay upto date about our latest offers</h1>
+                    </div>
+                    <div
+                        class='md:flex md:flex-col flex flex-col gap-3 md:items-center items-center md:justify-center md:gap-3'>
+                        <input type="text" class='w-60 h-10 rounded-3xl outline-none px-5'
+                            placeholder='Enter your email address' />
+                        <button type="submit"
+                            class='w-60 h-10 rounded-3xl bg-white text-black capitalize lg:text-base md:text-xs text-xs'>subscribe
+                            to newsletter</button>
+                    </div>
+                </div>
+                <div class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 md:mt-36 mt-28'>
+                    <div class='grid md:grid-cols-6 pt-32 sm:pt-40 pb-12 md:gap-0 gap-5'>
+                        <div
+                            class='col-span-2 leading-6 md:grid md:grid-cols-1 md:gap-0 grid grid-cols-1 gap-3 md:py-0 py-5'>
+                            <h3 class='uppercase font-black md:text-3xl text-2xl md:mb-5'>shop.co</h3>
+                            <p class='text-gray-500 md:mb-4 lg:text-base md:text-xs text-xs'>We have clothes that suits
+                                your style and which you’re proud to wear. From women to men.</p>
+                            <ul class='flex gap-4'>
+                                <a href='https://twitter.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-twitter md:text-xl text-lg"></i>
+                                </a>
+                                <a href='https://www.facebook.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-facebook md:text-xl text-lg"></i>
+                                </a>
+                                <a href='https://www.instagram.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-instagram md:text-xl text-lg"></i>
+                                </a>
+                                <a href='https://github.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-github md:text-xl text-lg"></i>
+                                </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>company</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>about</li>
+                                <li role='button'>features</li>
+                                <li role='button'>works</li>
+                                <li role='button'>career</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>help</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>customer support</li>
+                                <li role='button'>delivery details</li>
+                                <li role='button'>terms & conditons</li>
+                                <li role='button'>privacy policy</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>faq</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>account</li>
+                                <li role='button'>manage deliveries</li>
+                                <li role='button'>orders</li>
+                                <li role='button'>payments </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>resources</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>free eBooks</li>
+                                <li role='button'>development tutorial</li>
+                                <li role='button'>how to - blog</li>
+                                <li role='button'>youtube playlist</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <hr />
+                    <div
+                        class='pt-6 pb-12 flex md:flex-row flex-col md:gap-0 gap-3 lg:text-base md:text-xs text-xs items-center'>
+                        <p class='capitalize text-gray-500 flex-1'>shop.co &copy; 2000-2023. all rights reserved.</p>
+                        <div class='flex gap-3'>
+                            <img src="images/VISA-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/MASTER-CARD-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/PAYPAL-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/APPLE-PAY-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/GPAY-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        let isOpen = false;
+
+        function toggleHeader() {
+            const headerElement = document.querySelector('.flex-grow');
+
+            if (isOpen) {
+                headerElement.classList.remove('block');
+                headerElement.classList.add('hidden');
+            } else {
+                headerElement.classList.remove('hidden');
+                headerElement.classList.add('block');
+            }
+
+            isOpen = !isOpen;
+        }
+    </script>
+</body>
+
+</html>

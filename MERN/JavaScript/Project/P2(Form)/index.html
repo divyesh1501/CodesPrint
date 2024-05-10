@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form Validation</title>
+</head>
+
+<body>
+    <div class="form-validation">
+        <form action="#">
+            <div class="row">
+                <div class="col1"><label for="name">Name :</label></div>
+                <div class="col"><input type="text" placeholder="Enter Your Name" onblur="return check_blank_value(this, 'msg1')" id="name"></div>
+                <div class="col"><span id="msg1"></span></div>
+            </div>
+            <div class="row">
+                <div class="col1"><label for="email">Email :</label></div>
+                <div class="col"><input type="email" placeholder="Enter Your Email" onblur="return check_blank_value(this, 'msg2')" id="email"></div>
+                <div class="col"><span id="msg2"></span></div>
+            </div>
+            <div class="row">
+                <div class="col1"><label for="password">Create Password :</label></div>
+                <div class="col"><input type="password" placeholder="Enter Your Password" onblur="return check_blank_value(this, 'msg3')" id="pass"></div>
+                <div class="col"><span id="msg3"></span></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col"><input type="checkbox" name="Spass" onclick="showPass()"><label for="Spass">Show
+                        Password</label></div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col1"><label for="gender">Gender :</label></div>
+                <div class="col">
+                    <input type="radio" name="gender" id="male" onblur="return gender_check(this, 'msg4')">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" onblur="return gender_check(this, 'msg4')">
+                    <label for="female">Female</label>
+                </div>
+                <div class="col"><span id="msg4"></span></div>
+            </div>
+            <div class="row">
+                <div class="col1"><label for="dob">Date of Birth :</label></div>
+                <div class="col"><input type="date" placeholder="" onblur="return check_blank_value(this, 'msg5')" id="dob"></div>
+                <div class="col"><span id="msg5"></span></div>
+            </div>
+            <div class="row">
+                <div class="col1"><label for="dob">Experience :</label></div>
+                <div class="col">
+                    <select name="" id="exp" onblur="return exp_check(this, 'msg6')">
+                        <option value="-1">----Select----</option>
+                        <option value="">Frontend</option>
+                        <option value="">Backend</option>
+                        <option value="">Fullstack</option>
+                        <option value="">Cyeber Security</option>
+                    </select>
+                </div>
+                <div class="col"><span id="msg6"></span></div>
+            </div>
+            <div class="row">
+                <div class="col2"><button type="" onclick="check_form()">Register</button></div>
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

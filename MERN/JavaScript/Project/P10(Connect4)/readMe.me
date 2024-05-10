@@ -1,0 +1,36 @@
+(1)createBoard():
+This function creates the game board by dynamically generating HTML elements for each cell.
+It iterates through each row and column of the game board and creates a <div> element for each cell.
+Each cell is given a class of 'cell' and dataset attributes for row and column indices.
+These cells are then appended to the 'board' element in the HTML document.
+
+(2)resetBoard():
+This function resets the game board and other related variables to their initial state.
+It sets the currentPlayer back to 'red', resets the gameBoard array to all null values, clears the inner HTML of the board element, and recreates the board using the createBoard() function.
+It also clears any message displayed on the screen and adds back the event listener for handling clicks on the board.
+
+(3)checkWin():
+This function checks if the current player has won the game.
+It checks for four consecutive cells of the same player horizontally, vertically, and diagonally.
+It iterates through each row and column to check for winning combinations.
+If it finds a winning combination, it returns true; otherwise, it returns false.
+
+(4)checkDraw():
+This function checks if the game has ended in a draw.
+It checks if all cells on the game board are filled with either 'red' or 'yellow'.
+If all cells are filled and there is no winner, it returns true; otherwise, it returns false.
+
+(5)handleClick(event):
+This function is the event handler for handling clicks on the game board.
+It first extracts the column index from the clicked cell's dataset.
+Then, it finds the first available row in that column by calling the findAvailableRow() function.
+Next, it finds the last empty cell in the selected column by iterating through the cells from bottom to top.
+If a valid empty cell is found, it sets the data-player attribute to the currentPlayer's color, updates the gameBoard array, and changes the cell's background color.
+After placing the player's move, it checks for a win or draw using checkWin() and checkDraw() functions.
+If there is a win or draw, it displays the corresponding message and removes the event listener to prevent further moves.
+If neither win nor draw has occurred, it switches the currentPlayer for the next turn.
+
+(6)findAvailableRow(col):
+This function finds the first available row in a given column.
+It iterates through the rows from bottom to top and returns the index of the first row with a null value (empty cell).
+If the column is fully occupied, it returns -1 indicating that no move can be made in that column.

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Product</title>
+</head>
+
+<body>
+    <!-- Header  -->
+    <header>
+        <div class="bg-black h-[38px] flex items-center justify-center sm:flex sm:items-center md:block">
+            <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
+                <h1 class="flex-1 text-nowrap text-xs md:text-sm font-normal text-center">Sign up and get 20% off to
+                    your first
+                    order.<span class="underline" role='button'>Sign Up Now</span>
+                </h1>
+                <p class="hidden md:block lg:block" role='button'>
+                    <i class="fa-solid fa-xmark md:h-auto md:w-auto h-4 w-4"></i>
+                    <!-- <X class='' /> -->
+                </p>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <div class='flex items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3'>
+            <div class=" flex-1 ">
+                <nav class="flex gap-5 text-black items-center flex-wrap">
+                    <div class="flex items-center">
+                        <span class=" lg:hidden block md:text-4xl mr-2" onClick="toggleHeader()">
+                            <!-- <Menu /> -->
+                            <i class="fa-solid fa-bars"></i>
+                        </span>
+                        <a class="flex-1 logo md:text-4xl text-xl  font-bold flex items-center gap-2" href="../HomePage/HomePage.html"
+                            >SHOP.CO</a>
+                    </div>
+                    <!-- Togglebar  -->
+
+                    <div class="w-full flex-grow lg:flex lg:items-center items-center lg:w-auto hidden ">
+                        <div class="flex gap-5 lg:flex-row lg:items-center flex-col">
+                            <a href="#responsive-header"
+                                class="block mt-4 lg:inline-block text-base font-normal lg:mt-0">
+                                <div class="flex">
+                                    <div class="group relative cursor-pointer">
+
+                                        <div class="flex justify-between lg:space-x-5 bg-white">
+                                            <a class="menu-hover text-base text-black lg:mx-4 flex items-center lg:pb-6">
+                                                Shop
+                                                <span class="fa-solid fa-angle-down"></span>
+                                            </a>
+                                        </div>
+
+                                        <div
+                                            class="invisible absolute z-50 flex items-center w-full flex-col bg-gray-100 py-1 px-10 text-gray-800 shadow-xl group-hover:visible">
+
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                            href="../CategoryPage/CategoryPage.html">
+                                                Men
+                                            </a>
+
+                                            <a
+                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+                                                Woman
+                                            </a>
+
+                                            <a
+                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+                                                Kids
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#sale" class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4">
+                                On Sale
+                            </a>
+                            <a href="#newarrival"
+                                class="link block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 ">
+                                New Arrivals
+                            </a>
+                            <a href="#brand" class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4">
+                                Brands
+                            </a>
+                        </div>
+                    </div>
+
+                </nav>
+
+            </div>
+            <div class="flex gap-3 items-center justify-center">
+                <div class="relative  hidden lg:block" id='search'>
+                    <input type="text"
+                        class="bg-gray-200 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline"
+                        placeholder="Search for products..." />
+                    <div class="absolute top-0 right-0 mt-2">
+                        <i
+                            class="fa-solid fa-magnifying-glass md:text-xl text-lg text-gray-400 cursor-pointer mr-3"></i>
+                    </div>
+                </div>
+                <button class="text-black block lg:hidden">
+                    <a href="#search">
+                        <i class="fa-solid fa-magnifying-glass md:text-2xl text-lg"></i>
+                        <Search class='md:h-auto md:w-auto h-4 w-4' />
+                    </a>
+                </button>
+                <button class="text-black">
+                    <a class="fa-solid fa-cart-shopping md:text-2xl text-lg" href="../Cart/Cart.html"></a>
+                </button>
+                <button class="text-black">
+                    <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
+                </button>
+
+
+            </div>
+        </div>
+
+    </header>
+
+    <!-- product-page -->
+
+    <!-- product-details -->
+    <section class='md:mx-5 lg-mx-5 xl:mx-auto  md:max-w-7xl lg:max-w-7xl mx-3 mt-6'>
+        <hr class='md:my-6 my-4' />
+        <div>
+            <p class='flex items-center gap-2 capitalize md:text-base text-sm text-gray-500' role='button'><a href="../HomePage/HomePage.html">home</a>
+                <i class="fa-solid fa-angle-right"></i> shop
+                <i class="fa-solid fa-angle-right"></i> men
+                <i class="fa-solid fa-angle-right"></i> <span class='text-black' role='button'>t-shirts</span>
+            </p>
+            <div class='grid md:grid-cols-2 gap-5 mt-6'>
+                <div class='flex md:flex-col lg:flex-row flex-col-reverse gap-5 mt-7'>
+                    <div class='flex md:flex-row lg:flex-col gap-5'>
+                        <div><img src="images/GT-1.png" alt=""
+                                class='md:w-[15vw] md:h-[25vh] w-[26.5vw] h-[15vh] rounded-xl md:border-none border-2 border-black'
+                                role='button'></div>
+                        <div><img src="images/GT-2.png" alt=""
+                                class='md:w-[15vw] md:h-[25vh] w-[26.5vw] h-[15vh] rounded-xl' role='button'></div>
+                        <div><img src="images/GT-3.png" alt=""
+                                class='md:w-[15vw] md:h-[25vh] w-[26.5vw] h-[15vh] rounded-xl' role='button'></div>
+                    </div>
+                    <div>
+                        <img src="images/GT-1.png" alt=""
+                            class='md:w-[47vw] md:h-[88vh] lg:w-[47vw] lg:h-[80vh] w-[92vw] h-[50vh] rounded-xl'>
+                    </div>
+                </div>
+                <div>
+                    <div class='flex flex-col gap-3 mt-5'>
+                        <h1 class='md:text-3xl text-xl font-black uppercase'>one life graphic t-shirt</h1>
+                        <p class='flex items-center'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+                            <span>4.5/5</span>
+                        </p>
+                        <p class='font-bold flex items-center gap-5 md:text-xl text-xs'>$260 <span
+                                class='text-slate-400 line-through'>$300</span> <span
+                                class='bg-red-200 rounded-2xl text-xs px-2 py-1  text-red-600'>-40%</span></p>
+                        <p class='text-gray-500 md:text-base text-xs text-wrap'>This graphic t-shirt which is
+                            perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior
+                            comfort and style.</p>
+                    </div>
+                    <hr class=' h-1 my-5 dark:bg-gray-300' />
+                    <div class=''>
+                        <p class='capitalize text-gray-500 mb-3 md:text-base text-sm'>select colors</p>
+                        <div class='flex gap-5'>
+                            <p class='bg-lime-950 md:h-10 md:w-10 h-8 w-8 rounded-full grid place-content-center text-white'
+                                role='button'>
+                                <i class="fa-solid fa-check" style="color: #ffffff;"></i>
+                            </p>
+                            <p class='bg-green-950 md:h-10 md:w-10 h-8 w-8 rounded-full grid place-content-cente'
+                                role='button'></p>
+                            <p class='bg-indigo-950 md:h-10 md:w-10 h-8 w-8 rounded-full grid place-content-center'
+                                role='button'></p>
+                        </div>
+                        <hr class=' h-1 mx-auto my-5 dark:bg-gray-100' />
+                        <p class='capitalize text-gray-500 mb-3 md:text-base text-sm'>choose size</p>
+                        <div class='flex flex-row gap-5 capitalize'>
+                            <p class='bg-gray-200 px-2 py-2 rounded-full md:text-base text-xs' role='button'>small
+                            </p>
+                            <p class='bg-gray-200 px-2 py-2 rounded-full md:text-base text-xs' role='button'>medium
+                            </p>
+                            <p class='bg-gray-200 px-2 py-2 rounded-full md:text-base text-xs' role='button'>large
+                            </p>
+                            <p class='bg-gray-200 px-2 py-2 rounded-full md:text-base text-xs' role='button'>x-large
+                            </p>
+                        </div>
+                        <hr class=' h-1 mx-auto my-5 dark:bg-gray-100' />
+                        <div class='grid grid-cols-3 gap-5 '>
+                            <input
+                                class='flex md:gap-14 gap-2 bg-gray-200 px-5 py-3 rounded-3xl md:text-base text-sm outline-none placeholder-black cursor-pointer'
+                                placeholder='-               1              +' />
+                            <p class='flex items-center gap-5 justify-center bg-black text-white px-5 py-3 rounded-3xl capitalize col-span-2 md:text-base text-sm'
+                                role='button'>add to cart<i class="fa-solid fa-cart-shopping text-sm"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class='md:mx-5 lg-mx-5 xl:mx-auto  md:max-w-7xl lg:max-w-7xl mx-3 mt-12'>
+        <div class='capitalize grid grid-cols-3 text-center md:text-base text-xs'>
+            <p role='button'>product details</p>
+            <p class='border-b-2 pb-5 border-black ' role='button'>rating & reviews</p>
+            <p role='button'>FAQs</p>
+        </div>
+        <hr class=' h-1 mx-auto dark:bg-gray-100' />
+        <div>
+            <div class='flex items-center my-5'>
+                <h2 class='capitalize font-bold md:text-xl flex-1 text-sm'>all reviews <span
+                        class='text-gray-500 md:text-sm text-xs font-normal'>(451)</span></h2>
+                <div class='flex flex-row gap-5'>
+                    <p class='bg-gray-200 px-2 py-1 rounded-full' role='button'>
+                        <i class="fa-solid fa-sliders fa-rotate-90"></i>
+                    </p>
+                    <div class='md:block hidden'>
+                        <p class='bg-gray-200 px-2 py-1 rounded-3xl flex items-center gap-2 capitalize md:text-base text-xs '
+                            role='button'>latest
+                            <i class="fa-solid fa-angle-down"></i>
+                        </p>
+                    </div>
+                    <p class='bg-black flex items-center text-white px-2 py-1 rounded-3xl capitalize md:text-base text-xs'
+                        role='button'>write a review</p>
+                </div>
+            </div>
+            <div class='grid md:grid-cols-2 grid-cols-1 gap-5'>
+                <div class='flex flex-col gap-3 border p-5 rounded-xl'>
+                    <div class='flex'>
+                        <p class='flex flex-1'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+                        </p>
+                        <p class='md:block hidden'>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </p>
+                    </div>
+                    <h2 class='capitalize flex font-bold flex items-center gap-2'>samantha d.
+                        <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                    </h2>
+                    <p class='text-gray-500'>"I absolutely love this t-shirt! The design is unique and the fabric feels
+                        so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my
+                        favorite go-to shirt."</p>
+                    <p class='text-gray-500'>Posted on August 14, 2023</p>
+                </div>
+                <div class='flex flex-col gap-3 border p-5 rounded-xl'>
+                    <div class='flex'>
+                        <p class='flex flex-1'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        </p>
+                        <p class='md:block hidden'>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </p>
+                    </div>
+                    <h2 class='capitalize flex font-bold flex items-center gap-2'>alex m.
+                        <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                    </h2>
+                    <p class='text-gray-500'>"The t-shirt exceeded my expectations! The colors are vibrant and the print
+                        quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this
+                        t-shirt definitely gets a thumbs up from me."</p>
+                    <p class='text-gray-500'>Posted on August 15, 2023</p>
+                </div>
+                <div class='flex flex-col gap-3 border p-5 rounded-xl'>
+                    <div class='flex'>
+                        <p class='flex flex-1'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+                        </p>
+                        <p class='md:block hidden'>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </p>
+                    </div>
+                    <h2 class='capitalize flex font-bold flex items-center gap-2'>ethan r.
+                        <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                    </h2>
+                    <p class='text-gray-500'>"This t-shirt is a must-have for anyone who appreciates good design. The
+                        minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's
+                        touch in every aspect of this shirt."</p>
+                    <p class='text-gray-500'>Posted on August 16, 2023</p>
+                </div>
+                <div class='flex flex-col gap-3 border p-5 rounded-xl'>
+                    <div class='flex'>
+                        <p class='flex flex-1'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        </p>
+                        <p class='md:block hidden'>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </p>
+                    </div>
+                    <h2 class='capitalize flex font-bold flex items-center gap-2'>olivia p.
+                        <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                    </h2>
+                    <p class='text-gray-500'>"As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt
+                        not only represents those principles but also feels great to wear. It's evident that the
+                        designer poured their creativity into making this t-shirt stand out."</p>
+                    <p class='text-gray-500'>Posted on August 17, 2023</p>
+                </div>
+                <div class='flex flex-col gap-3 border p-5 rounded-xl'>
+                    <div class='flex'>
+                        <p class='flex flex-1'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        </p>
+                        <p class='md:block hidden'>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </p>
+                    </div>
+                    <h2 class='capitalize flex font-bold flex items-center gap-2'>liam k.
+                        <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                    </h2>
+                    <p class='text-gray-500'>"This t-shirt is a fusion of comfort and creativity. The fabric is soft,
+                        and the design speaks volumes about the designer's skill. It's like wearing a piece of art that
+                        reflects my passion for both design and fashion."</p>
+                    <p class='text-gray-500'>Posted on August 18, 2023</p>
+                </div>
+                <div class='flex flex-col gap-3 border p-5 rounded-xl'>
+                    <div class='flex'>
+                        <p class='flex flex-1'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+                        </p>
+                        <p class='md:block hidden'>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </p>
+                    </div>
+                    <h2 class='capitalize flex font-bold flex items-center gap-2'>ava h.
+                        <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                    </h2>
+                    <p class='text-gray-500'>"I'm not just wearing a t-shirt; I'm wearing a piece of design philosophy.
+                        The intricate details and thoughtful layout of the design make this shirt a conversation
+                        starter."</p>
+                    <p class='text-gray-500'>Posted on August 19, 2023</p>
+                </div>
+            </div>
+            <div class='text-center'>
+                <button class='border rounded-full p-3 my-5 capitalize font-semibold text-sm'>load more reviews</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- also-like-section -->
+    <section class='md:mx-5 lg-mx-5 xl:mx-auto  md:max-w-7xl lg:max-w-7xl mx-3 mt-12'>
+        <div>
+            <h1 class='md:text-4xl text-2xl font-black uppercase text-center'>you might also like</h1>
+            <div class='grid md:grid-cols-4 grid-cols-2 gap-5 my-12'>
+                <div class=''>
+                    <img src="images/AL1.png" alt=""
+                        class='md:h-[200px] md:w-[295px] lg:h-[280px] lg:w-[295px] h-44 w-44 rounded-lg'
+                        role='button' />
+                    <div class='flex flex-col gap-2 mt-1'>
+                        <h1 class='capitalize font-semibold md:text-base text-xs' role='button'>polo with contrast trims
+                        </h1>
+                        <p class='flex items-center'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <span>4.0/5</span>
+                        </p>
+                        <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$212 <span
+                                class='text-slate-400 line-through'>$242</span> <span
+                                class='bg-red-200 rounded-xl px-2 py-1 text-xs text-red-600'>-20%</span>
+                            <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
+                        </p>
+                    </div>
+                </div>
+                <div class=''>
+                    <img src="images/AL2.png" alt=""
+                        class='md:h-[200px] md:w-[295px] lg:h-[280px] lg:w-[295px] h-44 w-44 rounded-lg'
+                        role='button' />
+                    <div class='flex flex-col gap-2 mt-1'>
+                        <h1 class='capitalize font-semibold md:text-base text-xs' role='button'>gradiant graphic t-shirt
+                        </h1>
+                        <p class='flex items-center'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+                            <span>3.5/5</span>
+                        </p>
+                        <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$145
+                            <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
+                        </p>
+                    </div>
+                </div>
+                <div class='md:block hidden'>
+                    <img src="images/AL3.png" alt=""
+                        class='md:h-[200px] md:w-[295px] lg:h-[280px] lg:w-[295px] h-44 w-44 rounded-lg'
+                        role='button' />
+                    <div class='flex flex-col gap-2 mt-1'>
+                        <h1 class='capitalize font-semibold md:text-base text-xs' role='button'>polo with tipping
+                            details</h1>
+                        <p class='flex items-center'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+                            <span>4.5/5</span>
+                        </p>
+                        <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$180
+                            <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
+                        </p>
+                    </div>
+                </div>
+                <div class='md:block hidden'>
+                    <img src="images/AL4.png" alt=""
+                        class='md:h-[200px] md:w-[295px] lg:h-[280px] lg:w-[295px] h-44 w-44 rounded-lg'
+                        role='button' />
+                    <div class='flex flex-col gap-2 mt-1'>
+                        <h1 class='capitalize font-semibold md:text-base text-xs' role='button'>black striped t-shirt
+                        </h1>
+                        <p class='flex items-center'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <span>5.0/5</span>
+                        </p>
+                        <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$120 <span
+                                class='text-slate-400 line-through'>$150</span> <span
+                                class='bg-red-200 rounded-xl px-2 py-1 text-xs text-red-600'>-30%</span>
+                            <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer  -->
+    <footer class="bg-slate-100 font-[sans-serif] mt-32">
+        <div class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3'>
+            <div class="relative">
+                <div
+                    class=' flex flex-col sm:flex-row  items-center md:px-10 lg:px-20 py-4 md:gap-3 lg:gap-28 gap-5 bg-black rounded-xl top-[-100px] text-center absolute'>
+                    <div>
+                        <h1 class='uppercase text-sm md:text-xl lg:text-3xl font-black  md:py-12 md:flex-1 text-white'>
+                            stay upto date about our latest offers</h1>
+                    </div>
+                    <div
+                        class='md:flex md:flex-col flex flex-col gap-3 md:items-center items-center md:justify-center md:gap-3'>
+                        <input type="text" class='w-60 h-10 rounded-3xl outline-none px-5'
+                            placeholder='Enter your email address' />
+                        <button type="submit"
+                            class='w-60 h-10 rounded-3xl bg-white text-black capitalize lg:text-base md:text-xs text-xs'>subscribe
+                            to newsletter</button>
+                    </div>
+                </div>
+                <div class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 md:mt-36 mt-28'>
+                    <div class='grid md:grid-cols-6 pt-32 sm:pt-40 pb-12 md:gap-0 gap-5'>
+                        <div
+                            class='col-span-2 leading-6 md:grid md:grid-cols-1 md:gap-0 grid grid-cols-1 gap-3 md:py-0 py-5'>
+                            <h3 class='uppercase font-black md:text-3xl text-2xl md:mb-5'>shop.co</h3>
+                            <p class='text-gray-500 md:mb-4 lg:text-base md:text-xs text-xs'>We have clothes that suits
+                                your style and which you’re proud to wear. From women to men.</p>
+                            <ul class='flex gap-4'>
+                                <a href='https://twitter.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-twitter md:text-xl text-lg"></i>
+                                </a>
+                                <a href='https://www.facebook.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-facebook md:text-xl text-lg"></i>
+                                </a>
+                                <a href='https://www.instagram.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-instagram md:text-xl text-lg"></i>
+                                </a>
+                                <a href='https://github.com/' target="_blank"
+                                    class='bg-white border px-2 flex items-center rounded-full'>
+                                    <i class="fa-brands fa-github md:text-xl text-lg"></i>
+                                </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>company</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>about</li>
+                                <li role='button'>features</li>
+                                <li role='button'>works</li>
+                                <li role='button'>career</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>help</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>customer support</li>
+                                <li role='button'>delivery details</li>
+                                <li role='button'>terms & conditons</li>
+                                <li role='button'>privacy policy</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>faq</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>account</li>
+                                <li role='button'>manage deliveries</li>
+                                <li role='button'>orders</li>
+                                <li role='button'>payments </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class='uppercase font-medium md:text-base text-sm'>resources</h3>
+                            <ul
+                                class='text-gray-500 capitalize md:leading-8 lg:leading-9 leading-8 lg:text-base md:text-xs text-xs'>
+                                <li role='button'>free eBooks</li>
+                                <li role='button'>development tutorial</li>
+                                <li role='button'>how to - blog</li>
+                                <li role='button'>youtube playlist</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <hr />
+                    <div
+                        class='pt-6 pb-12 flex md:flex-row flex-col md:gap-0 gap-3 lg:text-base md:text-xs text-xs items-center'>
+                        <p class='capitalize text-gray-500 flex-1'>shop.co &copy; 2000-2023. all rights reserved.</p>
+                        <div class='flex gap-3'>
+                            <img src="images/VISA-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/MASTER-CARD-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/PAYPAL-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/APPLE-PAY-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                            <img src="images/GPAY-logo.png" alt="" class='h-5 w-8 bg-white rounded' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        let isOpen = false;
+
+        function toggleHeader() {
+            const headerElement = document.querySelector('.flex-grow');
+
+            if (isOpen) {
+                headerElement.classList.remove('block');
+                headerElement.classList.add('hidden');
+            } else {
+                headerElement.classList.remove('hidden');
+                headerElement.classList.add('block');
+            }
+
+            isOpen = !isOpen;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/todo.svg" type="image/x-icon">
+    <title>To-Do List</title>
+    <style>
+        .main{
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 100px;
+            font-size: 20px;
+        }
+        .title{
+            border-bottom: 2px solid black;
+        }
+        input{
+            width: 300px;
+            height: 40px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            outline: none;
+        }
+        button{
+            width: 308px;
+            height: 40px;
+            background: gray;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background: lightgrey;
+        }
+        .line {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="title">To-Do-List</h1>
+        <input type="text" name="" id="input">
+        <button type="submit" id="btn">Submit</button>
+        <ul id="todo-list" style="list-style-type: circle;"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

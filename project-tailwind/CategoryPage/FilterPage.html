@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Filter</title>
+</head>
+
+<body>
+    <!-- Filter-Page -->
+    <section class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3'>
+        <div class='rounded-t-3xl'>
+            <div>
+                <div class='flex items-center my-6'>
+                    <h2 class='capitalize font-bold md:text-2xl text-lg flex-1'>filters</h2>
+                    <a class='text-gray-500' role='button' href="./CategoryPage.html">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
+                <hr />
+            </div>
+            <div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>t-shirts</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>shorts</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>shirts</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>hoodie</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>jeans</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <hr class='my-4' />
+            </div>
+            <div>
+                <div class='flex flex-col'>
+                    <div class='flex items-center'><label for="price"
+                            class='capitalize font-bold md:text-2xl text-lg flex-1 my-6'>Price</label>
+                        <p class='text-gray-500' role='button'>
+                            <i class="fa-solid fa-angle-up text-lg"></i>
+                        </p>
+                    </div>
+                    <input type="range" id="price" name="price" min="20" value="80" max="100"
+                        class='relative accent-black' role='button' />
+                    <hr class='my-6' />
+                </div>
+            </div>
+            <div>
+                <h2 class='flex items-center my-4'>
+                    <p class='capitalize flex-1 font-bold md:text-2xl text-lg'>colors</p>
+                    <p class='text-gray-500' role='button'>
+                        <i class="fa-solid fa-angle-up text-lg"></i>
+                    </p>
+                </h2>
+                <div class='grid grid-cols-5 gap-5'>
+                    <p class='bg-green-500 rounded-full h-10 w-10 border-2 border-green-800' role='button'></p>
+                    <p class='bg-red-500 rounded-full h-10 w-10 border-2 border-red-800' role='button'></p>
+                    <p class='bg-yellow-500 rounded-full h-10 w-10 border-2 border-yellow-800' role='button'></p>
+                    <p class='bg-orange-500 rounded-full h-10 w-10 border-2 border-orange-800' role='button'></p>
+                    <p class='bg-sky-500 rounded-full h-10 w-10 border-2 border-sky-800' role='button'></p>
+                    <p class='bg-blue-500 rounded-full h-10 w-10 border-2 border-blue-800 flex items-center justify-center text-white'
+                        role='button'>
+                        <i class="fa-solid fa-check"></i>
+                    </p>
+                    <p class='bg-violet-500 rounded-full h-10 w-10 border-2 border-violet-800' role='button'></p>
+                    <p class='bg-pink-500 rounded-full h-10 w-10 border-2 border-pink-800' role='button'></p>
+                    <p class='bg-white rounded-full h-10 w-10 border-2 border-slate-300' role='button'></p>
+                    <p class='bg-black rounded-full h-10 w-10 border-2 border-black' role='button'></p>
+                </div>
+                <hr class='my-4' />
+            </div>
+            <div>
+                <div>
+                    <h2 class='flex items-center my-4'>
+                        <p class='capitalize flex-1 font-bold md:text-2xl text-lg'>size</p>
+                        <p class='text-gray-500'>
+                            <i class="fa-solid fa-angle-up text-lg"></i>
+                        </p>
+                    </h2>
+                    <div class='grid md:grid-cols-2 grid-cols-3 gap-3'>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>XX-small</p>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>X-small</p>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>small</p>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>medium</p>
+                        <p class='bg-black p-3 rounded-full capitalize text-white text-center md:text-base text-xs'
+                            role='button'>large</p>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>x-large</p>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>XX-large</p>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>3X-large</p>
+                        <p class='bg-gray-200 p-3 rounded-full capitalize text-gray-500 text-center md:text-base text-xs'
+                            role='button'>4X-large</p>
+                    </div>
+                </div>
+                <hr class='my-4' />
+            </div>
+            <div>
+                <h2 class='flex items-center my-4'>
+                    <p class='capitalize flex-1 font-bold md:text-2xl text-lg'>dress style</p>
+                    <p class='text-gray-500'>
+                        <i class="fa-solid fa-angle-up text-lg"></i>
+                    </p>
+                </h2>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>casual</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>formal</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>party</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+                <div class='flex items-center text-gray-500 my-1'>
+                    <p class='capitalize flex-1 md:text-base text-xs'>gym</p>
+                    <p role='button'>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </p>
+                </div>
+            </div>
+            <button class='text-white bg-black rounded-full p-3 capitalize w-full my-4 md:text-base text-xs'>apply
+                filter</button>
+        </div>
+    </section>
+</body>
+
+</html>
