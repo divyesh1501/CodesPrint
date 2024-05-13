@@ -65,7 +65,7 @@
 const numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 let flippedCards = [];
 let matchedCards = [];
-let canFlip = true; 
+let canFlip = true;
 
 function createCard(number) {
     const card = document.createElement('div');
@@ -111,12 +111,14 @@ function checkMatch() {
 }
 
 function initGame() {
-    const gameBoard = document.querySelector('.game-board');
-    numbers.sort(() => Math.random() - 0.5);
-    numbers.forEach(number => {
-        const card = createCard(number);
-        gameBoard.appendChild(card);
-    });
+    setTimeout(() => {
+        const gameBoard = document.querySelector('.game-board');
+        numbers.sort(() => Math.random() - 0.5);
+        numbers.forEach(number => {
+            const card = createCard(number);
+            gameBoard.appendChild(card);
+        });
+    }, 1000);
 }
 
 initGame();
