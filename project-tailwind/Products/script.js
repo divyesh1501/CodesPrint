@@ -61,6 +61,7 @@ let displayProduct = async (allCheckCat = []) => {
             </div>`
         }
     });
+    console.log("🚀 ~ displayProduct ~ finalProduct:", finalProduct)
 }
 
 displayProduct();

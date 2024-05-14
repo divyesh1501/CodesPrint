@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Products</title>
+    <title>SignIn</title>
 </head>
 
 <body>
@@ -118,55 +118,47 @@
                     </a>
                 </button>
                 <button class="text-gray-500 hover:text-black font-semibold">
-                    <a href="../SignIn-SignUp/SignInForm.html">
-                        <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
-                    </a>
+                    <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
                 </button>
             </div>
         </div>
 
     </header>
 
-    <h1 class="text-center py-10 font-bold text-3xl">Our Products</h1>
-    <section
-        class="main mt-12 md:mt-6  md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 flex gap-20 space-x-0">
+    <!-- LoginForm -->
+    <section class="mt-12 md:mt-6  md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
 
-        <div class="filterBox ">
-            <h2 class="font-bold text-2xl">Category</h2>
-            <div class="CategoryList mt-5 flex flex-col">
-
-            </div>
-            <!-- <div class="CategoryList  flex">
-                <input type="checkbox" name="" id="">
-                <label for="" class="inline-block py-2 ">
-                <label for="" class="inline-block py-2 px-1">
-                    Womens
-                </label>
-            </div>
-            <div class="CategoryList  flex">
-                <input type="checkbox" name="" id="">
-                <label for="" class="inline-block py-2 px-1">
-                    Jewelery
-                </label>
-            </div>
-            <div class="CategoryList  flex">
-                <input type="checkbox" name="" id="">
-                <label for="" class="inline-block py-2 px-1">
-                    Electronics
-                </label>
-            </div> -->
-
-        </div>
-        <div class="product grid grid-cols-3 gap-10 h5">
-            <!-- <div class="item grid grid-cols-3 gap-5">
-                <div class="mb-5 shadow-lg rounded">
-                    <img src="./images/demo.avif" alt="" class="rounded-t">
-                    <h3 class="p-2 font-semibold text-lg">Product-Title</h3>
-                    <p class="p-2">Price:125</p>
+        <div class="flex flex-col items-center justify-center py-5">
+            <form action="">
+                <h1 class="text-center text-xl font-semibold py-5">Sign in with:</h1>
+                <p class="flex gap-10">
+                    <a
+                        class="fa-brands fa-facebook-f bg-slate-100 px-5 py-2 text-lg text-blue-500 rounded cursor-pointer"></a>
+                    <a
+                        class="fa-brands fa-google bg-slate-100 px-4 py-2 text-lg text-blue-500 rounded cursor-pointer"></a>
+                    <a
+                        class="fa-brands fa-twitter bg-slate-100 px-4 py-2 text-lg text-blue-500 rounded cursor-pointer"></a>
+                    <a
+                        class="fa-brands fa-github bg-slate-100 px-4 py-2 text-lg text-blue-500 rounded cursor-pointer"></a>
+                </p>
+                <h1 class="text-center text-xl font-semibold py-5">Or:</h1>
+                <div class="flex flex-col gap-3">
+                    <input type="text" name="" id="email" placeholder="Email or username"
+                        class="outline-none border border-gray-400 p-2 w-full rounded">
+                    <input type="password" name="" id="pass" placeholder="Password"
+                        class="outline-none border border-gray-400 p-2 w-full rounded">
                 </div>
-            </div> -->
+                <div class="flex space-x-20 my-5">
+                    <p class="flex items-center">
+                        <input type="checkbox" name="" id="">
+                        <label for="" class="ml-2">Remember me</label>
+                    </p>
+                    <p><a href="" class="text-blue-500">Forgot password?</a></p>
+                </div>
+                <button type="submit" class="w-full py-3 bg-blue-500 text-white font-semibold uppercase rounded-full" onclick="signInUser()">Sign in</button>
+                <p class="text-center my-5">Not a Member? <a href="./RegisterForm.html" class="text-blue-500">Register Here.!</a></p>
+            </form>
         </div>
-
     </section>
 
     <!-- Footer  -->
