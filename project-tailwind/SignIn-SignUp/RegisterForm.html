@@ -16,7 +16,7 @@
             <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
                 <h1 class="flex-1 text-nowrap text-xs md:text-sm font-normal text-center">Sign up and get 20% off to
                     your first
-                    order.<span class="underline" role='button'>Sign Up Now</span>
+                    order.<a href="../SignIn-SignUp/RegisterForm.html" class="underline" role='button'>Sign Up Now</a>
                 </h1>
                 <p class="hidden md:block lg:block" role='button'>
                     <i class="fa-solid fa-xmark md:h-auto md:w-auto h-4 w-4"></i>
@@ -58,38 +58,35 @@
                                             class="invisible absolute z-50 flex items-center w-full flex-col bg-gray-100 py-1 px-10 text-gray-800 shadow-xl group-hover:visible">
 
                                             <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
-                                                href="../CategoryPage/CategoryPage.html">
+                                                href="../CategoryPage/Men.html">
                                                 Men
                                             </a>
 
-                                            <a
-                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                                href="../CategoryPage/Women.html">
                                                 Woman
                                             </a>
 
-                                            <a
-                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
-                                                Kids
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                                href="../CategoryPage/Jewelery.html">
+                                                Jewelery
+                                            </a>
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                                href="../CategoryPage/Electronics.html">
+                                                Electronics
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="../HomePage/HomePage.html#sale"
-                                class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
-                                On Sale
-                            </a>
+                
                             <a href="../Products/Products.html"
                                 class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
                                 Products
                             </a>
-                            <a href="../HomePage/HomePage.html#newarrival"
+                            <a href="../HomePage/HomePage.html#cat"
                                 class="link block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold ">
-                                New Arrivals
-                            </a>
-                            <a href="../HomePage/HomePage.html#brand"
-                                class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
-                                Brands
+                                By Categories
                             </a>
                         </div>
                     </div>
@@ -118,10 +115,13 @@
                     </a>
                 </button>
                 <button class="text-gray-500 hover:text-black font-semibold">
-                    <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
+                    <a href="../SignIn-SignUp/SignInForm.html">
+                        <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
+                    </a>
                 </button>
             </div>
         </div>
+
     </header>
 
     <!-- RegisterForm -->
@@ -152,8 +152,10 @@
                         class="outline-none border border-gray-400 p-2 w-full rounded">
                 </div>
                 <button type="submit"
-                    class="w-full py-3 bg-blue-500 text-white font-semibold uppercase rounded-full mt-5" onclick="registerUser()">Register</button>
-                <p class="text-center my-5">Already a Member? <a href="./SignInForm.html" class="text-blue-500">SignIn Here.!</a></p>
+                    class="w-full py-3 bg-blue-500 text-white font-semibold uppercase rounded-full mt-5"
+                    onclick="registerUser()">Register</button>
+                <p class="text-center my-5">Already a Member? <a href="./SignInForm.html" class="text-blue-500">SignIn
+                        Here.!</a></p>
             </form>
         </div>
     </section>

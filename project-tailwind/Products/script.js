@@ -41,10 +41,9 @@ function renderProducts(products) {
         <div class="mb-5 shadow-lg rounded p-5">
             <img src="${product.image}" alt="" class="rounded-t w-full h-56 p-5">
             <h3 class="p-1 font-semibold text-lg line-clamp-1 border-b-2 cursor-pointer">${product.title}</h3>
-            <h4 class="p-2 capitalize">${product.category}</h4>
-            <p class="p-2 font-semibold flex gap-1 items-center">Price Rs.${product.price} | ${product.rating.rate}
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-            <button onclick="addToCart(${product.id})" class="border border-black rounded px-2 py-1 uppercase text-xs font-bold fa-solid fa-cart-plus ">Add to Cart</button>
+            <h4 class="p-2 capitalize lg:block hidden">${product.category}</h4>
+            <p class="p-2 font-semibold flex flex-col xl:gap-3 gap-2"> <span class="flex items-center gap-1" >Price Rs.${product.price} | ${product.rating.rate} <i class="fa-solid fa-star" style="color: #FFD43B;"></i></span>
+            <button onclick="addToCart(${product.id})" class="border border-black rounded px-2 py-1 uppercase text-xs justify-center font-bold fa-solid fa-cart-plus flex gap-1 "><span class="">Add to Cart</span></button>
             </p>   
         </div>   
     </div>`;

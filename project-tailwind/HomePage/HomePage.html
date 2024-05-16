@@ -16,7 +16,7 @@
             <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
                 <h1 class="flex-1 text-nowrap text-xs md:text-sm font-normal text-center">Sign up and get 20% off to
                     your first
-                    order.<a href="../SignIn-SignUp/RegisterForm.html"="underline" role='button'>Sign Up Now</a>
+                    order.<a href="../SignIn-SignUp/RegisterForm.html" class="underline" role='button'>Sign Up Now</a>
                 </h1>
                 <p class="hidden md:block lg:block" role='button'>
                     <i class="fa-solid fa-xmark md:h-auto md:w-auto h-4 w-4"></i>
@@ -58,38 +58,35 @@
                                             class="invisible absolute z-50 flex items-center w-full flex-col bg-gray-100 py-1 px-10 text-gray-800 shadow-xl group-hover:visible">
 
                                             <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
-                                                href="../CategoryPage/CategoryPage.html">
+                                                href="../CategoryPage/Men.html">
                                                 Men
                                             </a>
 
-                                            <a
-                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                                href="../CategoryPage/Women.html">
                                                 Woman
                                             </a>
 
-                                            <a
-                                                class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
-                                                Kids
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                                href="../CategoryPage/Jewelery.html">
+                                                Jewelery
+                                            </a>
+                                            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
+                                                href="../CategoryPage/Electronics.html">
+                                                Electronics
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="../HomePage/HomePage.html#sale"
-                                class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
-                                On Sale
-                            </a>
+
                             <a href="../Products/Products.html"
                                 class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
                                 Products
                             </a>
-                            <a href="../HomePage/HomePage.html#newarrival"
+                            <a href="../HomePage/HomePage.html#cat"
                                 class="link block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold ">
-                                New Arrivals
-                            </a>
-                            <a href="../HomePage/HomePage.html#brand"
-                                class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
-                                Brands
+                                By Categories
                             </a>
                         </div>
                     </div>
@@ -138,8 +135,9 @@
                 <p class="lg:text-base md:text-xs text-xs font-normal text-gray-400">Browse through our diverse range of
                     meticulously crafted
                     garments, designed to bring out your individuality and cater to your sense of style.</p>
-                <button class="bg-black rounded-3xl text-white text-base font-medium md:w-40" style="height: 40px;">Shop
-                    now</button>
+                <a href="../Products/Products.html"
+                    class="bg-black rounded-3xl text-white border text-center py-1.5 text-base font-medium md:w-40 hover:bg-slate-200 hover:border-black hover:text-black"
+                    style="height: 40px;">Shop now</a>
 
                 <div class="grid md:grid-cols-3 lg:grid-cols-3 grid-cols-2 place-content-center capitalize gap-4">
                     <div>
@@ -165,268 +163,128 @@
     <div class='bg-black' id='brand'>
         <div
             class="uppercase col-span-2 text-white md:p-10 p-5 text-2xl md:text-2xl md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
-            <div class="grid md:grid-cols-5 grid-cols-5 text-nowrap">
-                <p class="md:col-span-1 col-span-2 cursor-pointer">versace</p>
-                <p class="md:col-span-1 col-span-2 cursor-pointer">zara</p>
-                <p class="md:col-span-1 col-span-1 cursor-pointer">gucii</p>
-                <p class="md:col-span-1 col-span-2 cursor-pointer">prada</p>
-                <p class="md:col-span-1 col-span-2 cursor-pointer">calvin klein</p>
+            <div class="grid md:grid-cols-4 grid-cols-4 md:gap-20 text-nowrap justify-center">
+                <a href="../CategoryPage/Men.html" class="md:col-span-1 col-span-3 cursor-pointer">men's clothing</a>
+                <a href="../CategoryPage/Women.html" class="md:col-span-1 col-span-3 cursor-pointer">women's clothing</a>
+                <a href="../CategoryPage/Jewelery.html" class="md:col-span-1 col-span-2 cursor-pointer">jewelery</a>
+                <a href="../CategoryPage/Electronics.html" class="md:col-span-1 col-span-2 cursor-pointer">electronics</a>
+                <!-- <p class="md:col-span-1 col-span-2 cursor-pointer">prada</p>
+                <p class="md:col-span-1 col-span-2 cursor-pointer">calvin klein</p> -->
             </div>
         </div>
     </div>
 
-    <!-- new-arrival -->
+    <!-- Men-section -->
     <section class="md:mt-12 mt-12 md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 " id='newarrival'>
-        <div>
-            <h1 class='uppercase md:text-4xl font-black text-center text-xl'>new arrivals</h1>
-        </div>
-        <div class='grid md:grid-cols-4 grid-cols-2 gap-5 my-12'>
-            <div class=''>
-                <a href="../ProductPage/ProductPage.html">
-                    <img src="images/GT-1.png" alt=""
-                        class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                </a>
-                <div class='flex flex-col gap-2 mt-1'>
-                    <a href="../ProductPage/ProductPage.html"
-                        class='capitalize font-semibold md:text-base text-xs cursor-pointer'>gradiant graphic
-                        t-shirt</a>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
-                        <span>4.5/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-lg text-xs'>$260 <span
-                            class='text-slate-400 line-through'>$300</span> <span
-                            class='bg-red-200 rounded-2xl text-xs px-2 py-1  text-red-600'>-40%</span>
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-
-                </div>
-            </div>
-            <div class=''>
-                <img src="images/NA2.png" alt=""
-                    class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                <div class='flex flex-col gap-2 mt-1'>
-                    <h1 class='capitalize font-semibold md:text-base text-xs cursor-pointer'>skinny fit jeans</h1>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
-                        <span>4.5/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$240 <span
-                            class='text-slate-400 line-through'>$260</span> <span
-                            class='bg-red-200 rounded-xl px-2 py-1 text-xs text-red-600'>-20%</span>
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-                </div>
-            </div>
-            <div class='hidden md:block'>
-                <img src="images/NA3.png" alt=""
-                    class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                <div class='flex flex-col gap-2 mt-1'>
-                    <h1 class='capitalize font-semibold md:text-base text-xs cursor-pointer'>checkerd shirt</h1>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
-                        <span>4.5/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$180
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-                </div>
-            </div>
-            <div class='hidden md:block'>
-                <img src="images/NA4.png" alt=""
-                    class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                <div class='flex flex-col gap-2 mt-1'>
-                    <h1 class='capitalize font-semibold md:text-base text-xs cursor-pointer'>sleeve striped t-shirt</h1>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
-                        <span>4.5/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$130 <span
-                            class='text-slate-400 line-through'>$160</span> <span
-                            class='bg-red-200 rounded-xl px-2 py-1 text-xs text-red-600 '>-30%</span>
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-                </div>
-            </div>
+        <h1 class='uppercase md:text-4xl font-black text-center text-xl'>Men's Clothing</h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 xs:grid-cols-2 md:gap-10 gap-5 my-12" id='men'>
         </div>
         <div class='text-center mb-12'>
-            <button class='capitalize md:w-40 w-full h-10 border rounded-3xl font-semibold'>view all</button>
+            <a href="../CategoryPage/Men.html">
+                <button
+                    class='capitalize md:w-40 w-full h-10 border rounded-3xl font-semibold hover:bg-slate-200 hover:border-slate-400'>view
+                    all</button>
+            </a>
         </div>
     </section>
     <hr class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3' />
 
-    <!-- top-selling -->
+    <!-- Women-section -->
     <section class="md:mt-12 mt-12 md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 " id='sale'>
-        <div>
-            <h1 class='uppercase md:text-4xl font-black text-center text-xl'>top selling</h1>
-        </div>
-        <div class='grid md:grid-cols-4 grid-cols-2 gap-5 my-12'>
-            <div class=''>
-                <img src="images/TS1.png" alt=""
-                    class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                <div class='flex flex-col gap-2 mt-1'>
-                    <h1 class='capitalize font-semibold md:text-base text-xs cursor-pointer'>vertical striped shirt
-                    </h1>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <span>5.0/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$212 <span
-                            class='text-slate-400 line-through'>$232</span> <span
-                            class='bg-red-200 rounded-xl p-1 text-xs text-red-600'>-20%</span>
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-                </div>
-            </div>
-            <div class=''>
-                <img src="images/TS2.png" alt=""
-                    class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                <div class='flex flex-col gap-2 mt-1'>
-                    <h1 class='capitalize font-semibold md:text-base text-xs cursor-pointer'>courgae graphic t-shirt
-                    </h1>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <span>4.0/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$145
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-                </div>
-            </div>
-            <div class='hidden md:block'>
-                <img src="images/TS3.png" alt=""
-                    class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                <div class='flex flex-col gap-2 mt-1 cursor-pointer'>
-                    <h1 class='capitalize font-semibold md:text-base text-xs'>loose fit bermuda shorts</h1>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <span>3.0/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$80
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-                </div>
-            </div>
-            <div class='hidden md:block'>
-                <img src="images/TS4.png" alt=""
-                    class='md:h-[298px] md:w-[295px] h-44 w-44 rounded-lg cursor-pointer' />
-                <div class='flex flex-col gap-2 mt-1 cursor-pointer'>
-                    <h1 class='capitalize font-semibold md:text-base text-xs'>faded skinny jeans</h1>
-                    <p class='flex items-center'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
-                        <span>4.5/5</span>
-                    </p>
-                    <p class='font-bold flex items-center gap-5 md:text-base text-xs'>$210
-                        <i class="fa-solid fa-cart-shopping text-sm" role='button'></i>
-                    </p>
-                </div>
-            </div>
+        <h1 class='uppercase md:text-4xl font-black text-center text-xl'>Women's Clothing</h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 xs:grid-cols-2 md:gap-10 gap-5 my-12" id='women'>
         </div>
         <div class='text-center mb-12'>
-            <button class='capitalize md:w-40 h-10 w-full border rounded-3xl font-semibold'>view all</button>
+            <a href="../CategoryPage/Women.html">
+                <button
+                    class='capitalize md:w-40 w-full h-10 border rounded-3xl font-semibold hover:bg-slate-200 hover:border-slate-400'>view
+                    all</button>
+            </a>
         </div>
     </section>
 
     <!-- dress-style -->
-    <section class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 '>
+    <section class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3' id="cat">
         <div class='bg-gray-100 rounded-xl'>
-            <h1 class='uppercase md:text-4xl text-2xl font-black text-center md:py-12 py-6'>browse by dress style</h1>
+            <h1 class='uppercase md:text-4xl text-2xl font-black text-center md:py-12 py-6'>browse by categories</h1>
             <div class='grid md:grid-cols-3 gap-5 items-center md:place-content-center md:mx-12 md:pb-12 mx-6 pb-6 '>
 
                 <div class=" justify-center items-center">
-                    <div class='relative'>
-                        <img src="images/DS1.png" alt=""
-                            class="object-cover md:w-[500px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer" />
-                        <h2 class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl'>casual
+                    <a class='relative' href="../CategoryPage/Men.html">
+                        <img src="images/DS1.jpg" alt=""
+                            class="object-cover md:w-[500px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
+                        <h2
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            men
                         </h2>
-                    </div>
+                    </a>
                 </div>
                 <div class=" justify-center items-center md:col-span-2">
-                    <div class='relative'>
-                        <img src="images/DS2.png" alt=""
-                            class=" object-cover md:w-[780px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer" />
-                        <h2 class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl'>formal
+                    <a class='relative' href="../CategoryPage/Jewelery.html">
+                        <img src="images/DS2.jpg" alt=""
+                            class=" object-cover md:w-[780px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
+                        <h2
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            jewelery
                         </h2>
-                    </div>
+                    </a>
                 </div>
                 <div class=" justify-center items-center md:col-span-2">
-                    <div class='relative'>
-                        <img src="images/DS3.png" alt=""
-                            class=" object-cover md:w-[780px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer" />
-                        <h2 class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl'>party</h2>
-                    </div>
+                    <a class='relative' href="../CategoryPage/Electronics.html">
+                        <img src="images/DS3.jpg" alt=""
+                            class="object-cover md:w-[780px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
+                        <h2
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            electronics</h2>
+                    </a>
                 </div>
                 <div class="justify-center items-center">
-                    <div class='relative'>
-                        <img src="images/DS4.png" alt=""
-                            class=" object-cover md:w-[407px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer" />
-                        <h2 class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl'>gym</h2>
-                    </div>
+                    <a class='relative' href="../CategoryPage/Women.html">
+                        <img src="images/DS4.jpg" alt=""
+                            class=" object-cover md:w-[407px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
+                        <h2
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            women</h2>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- happy-cutomer -->
+   
     <section class='md:mx-5 lg-mx-5 xl:mx-auto mt-12 md:max-w-7xl lg:max-w-7xl mx-3 md:mb-0 mb-36 '>
         <div>
             <div class='flex md:items-center'>
                 <h1 class='uppercase md:text-4xl font-black text-2xl md:py-12 flex-1'>our happy customers</h1>
                 <div class='flex items-center gap-3 md:gap-5'>
-                    <p role="button">
+                    <p role="button" id="prevBtn">
                         <i class="fa-solid fa-arrow-left"></i>
                     </p>
-                    <p role="button">
+                    <p role="button" id="nextBtn">
                         <i class="fa-solid fa-arrow-right"></i>
                     </p>
                 </div>
             </div>
-            <div class='grid md:grid-cols-3 md:gap-10 gap-5 md:my-0 my-5'>
-                <div class='p-6 leading-6 border rounded-xl grid grid-cols-1 gap-3'>
-                    <p class='flex'>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                    </p>
-                    <h2 class='flex items-center capitalize font-bold text-xl'>sarah m.
-                        <span class='ms-1'>
-                            <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
-                        </span>
-                    </h2>
-                    <p class='text-gray-400 lg:text-base md:text-xs text-xs'>"I'm blown away by the quality and style of
-                        the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've
-                        bought has exceeded my expectations.”</p>
+            <div id="customerSlider" class='grid md:grid-cols-3 md:gap-10 gap-5 md:my-0 my-5'>
+                <div class="md:block">
+                    <div class='p-6 leading-6 border rounded-xl grid grid-cols-1 gap-3'>
+                        <p class='flex'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        </p>
+                        <h2 class='flex items-center capitalize font-bold text-xl'>sarah m.
+                            <span class='ms-1'>
+                                <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                            </span>
+                        </h2>
+                        <p class='text-gray-400 lg:text-base md:text-xs text-xs'>"Finding clothes that align with my
+                            personal style used to be a challenge until I discovered Shop.co. The range of options they
+                            offer is truly remarkable, catering to a variety of tastes and occasions.”</p>
+                    </div>
                 </div>
                 <div class='md:block hidden'>
                     <div class='p-6 leading-6 border rounded-xl grid grid-cols-1 gap-3'>
@@ -466,6 +324,44 @@
                             clothes is not only diverse but also on-point with the latest trends.”</p>
                     </div>
                 </div>
+                <div class='md:block hidden'>
+                    <div class='p-6 leading-6 border rounded-xl grid grid-cols-1 gap-3'>
+                        <p class='flex'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        </p>
+                        <h2 class='flex items-center capitalize font-bold text-xl'>tony s.
+                            <span class='ms-1'>
+                                <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                            </span>
+                        </h2>
+                        <p class='text-gray-400 lg:text-base md:text-xs text-xs'>"As someone who's always on the lookout
+                            for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of
+                            clothes is not only diverse but also on-point with the latest trends.”</p>
+                    </div>
+                </div>
+                <div class='md:block hidden'>
+                    <div class='p-6 leading-6 border rounded-xl grid grid-cols-1 gap-3'>
+                        <p class='flex'>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        </p>
+                        <h2 class='flex items-center capitalize font-bold text-xl'>john c.
+                            <span class='ms-1'>
+                                <i class="fa-solid fa-circle-check" style="color: #339d15;"></i>
+                            </span>
+                        </h2>
+                        <p class='text-gray-400 lg:text-base md:text-xs text-xs'>"As someone who's always on the lookout
+                            for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of
+                            clothes is not only diverse but also on-point with the latest trends.”</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -475,7 +371,7 @@
         <div class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3'>
             <div class="relative">
                 <div
-                    class=' flex flex-col sm:flex-row  items-center md:px-10 lg:px-20 py-4 md:gap-3 lg:gap-28 gap-5 bg-black rounded-xl top-[-100px] text-center absolute'>
+                    class=' flex flex-col sm:flex-row  items-center md:px-10 lg:px-20 py-4 px-5 md:gap-3 lg:gap-28 gap-5 bg-black rounded-xl top-[-100px] text-center absolute'>
                     <div>
                         <h1 class='uppercase text-sm md:text-xl lg:text-3xl font-black  md:py-12 md:flex-1 text-white'>
                             stay upto date about our latest offers</h1>
@@ -575,23 +471,7 @@
     </footer>
 
 
-    <script>
-        let isOpen = false;
-
-        function toggleHeader() {
-            const headerElement = document.querySelector('.flex-grow');
-
-            if (isOpen) {
-                headerElement.classList.remove('block');
-                headerElement.classList.add('hidden');
-            } else {
-                headerElement.classList.remove('hidden');
-                headerElement.classList.add('block');
-            }
-
-            isOpen = !isOpen;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
