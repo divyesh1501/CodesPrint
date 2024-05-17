@@ -10,7 +10,7 @@
 </head>
 
 <body>
-     <!-- Header  -->
+    <!-- Header  -->
     <header>
         <div class="bg-black h-[38px] flex items-center justify-center sm:flex sm:items-center md:block">
             <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                             </a>
-                
+
                             <a href="../Products/Products.html"
                                 class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
                                 Products
@@ -96,7 +96,7 @@
             </div>
             <div class="flex gap-3 items-center justify-center">
                 <div class="relative  hidden lg:block" id='search'>
-                    <input type="text"
+                    <input type="text" id="searchInput"
                         class="bg-gray-200 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline"
                         placeholder="Search for products..." />
                     <div class="absolute top-0 right-0 mt-2">
@@ -110,11 +110,12 @@
                     </a>
                 </button>
                 <button class="text-gray-500 hover:text-black font-semibold">
-                    <a href="../Cart/Cart.html">
-                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg"></i>
+                    <a href="../Products/Cart.html">
+                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg relative"></i>
+                        <span id="cartItemCount" class="text-red-500 text-xs absolute"></span>
                     </a>
                 </button>
-                <button class="text-gray-500 hover:text-black font-semibold">
+                <button class="text-gray-500 hover:text-black font-semibold ml-1">
                     <a href="../SignIn-SignUp/SignInForm.html">
                         <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
                     </a>
@@ -130,8 +131,8 @@
         </div>
     </section>
 
-     <!-- Footer  -->
-     <footer class="bg-slate-100 font-[sans-serif] mt-32">
+    <!-- Footer  -->
+    <footer class="bg-slate-100 font-[sans-serif] mt-32">
         <div class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3'>
             <div class="relative">
                 <div
@@ -233,7 +234,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         let isOpen = false;
 
@@ -271,27 +271,57 @@
             products.forEach(product => {
                 const productElement = document.createElement('div');
                 productElement.innerHTML = `
-            <div class="item">
-                <div class="mb-5 shadow-lg rounded p-5">
-            <img src="${product.image}" alt="" class="rounded-t w-full h-56 p-5">
-            <h3 class="p-1 font-semibold text-lg line-clamp-1 border-b-2 cursor-pointer">${product.title}</h3>
-            <h4 class="p-2 capitalize lg:block hidden">${product.category}</h4>
-            <p class="p-2 font-semibold flex flex-col xl:gap-3 gap-2"> <span class="flex items-center gap-1" >Price Rs.${product.price} | ${product.rating.rate} <i class="fa-solid fa-star" style="color: #FFD43B;"></i></span>
-            <button onclick="addToCart(${product.id})" class="border border-black rounded px-2 py-1 uppercase text-xs justify-center font-bold fa-solid fa-cart-plus flex gap-1 "><span class="">Add to Cart</span></button>
-            </p>   
-        </div>   
-            </div>`;
+        <div class="item">
+            <div class="mb-5 shadow-lg rounded p-5">
+                <img src="${product.image}" alt="" class="rounded-t w-full h-56 p-5">
+                <h3 class="p-1 font-semibold text-lg line-clamp-1 border-b-2 cursor-pointer">${product.title}</h3>
+                <h4 class="p-2 capitalize lg:block hidden">${product.category}</h4>
+                <p class="p-2 font-semibold flex flex-col xl:gap-3 gap-2"> 
+                    <span class="flex items-center gap-1" >Price Rs.${product.price} | ${product.rating.rate} <i class="fa-solid fa-star" style="color: #FFD43B;"></i></span>
+                    <button onclick="addToCart(${product.id})" class="border border-black rounded px-2 py-1 uppercase text-xs justify-center font-bold flex gap-1 "><a href="../Products/Products.html" class="">shop now</a></button>
+                </p>   
+            </div>   
+        </div>`;
                 productsContainer.appendChild(productElement);
             });
         }
 
-        // Call fetchMenProducts() to fetch data from the API, and then render the products
-        fetchMenProducts().then(data => {
-            // Once data is fetched, render the products
-            renderMenProducts(data);
-        }).catch(error => {
-            console.error('Error fetching products:', error);
-        });
+        // Function to search products
+        function searchProducts(query) {
+            fetch('https://fakestoreapi.com/products?limit=4')
+                .then(response => response.json())
+                .then(products => {
+                    const lowerCaseQuery = query.toLowerCase();
+                    const filteredProducts = products.filter(product =>
+                        product.title.toLowerCase().includes(lowerCaseQuery) ||
+                        product.category.toLowerCase().includes(lowerCaseQuery)
+                    );
+                    renderMenProducts(filteredProducts);
+                })
+                .catch(error => {
+                    console.error('Error fetching or filtering products:', error);
+                });
+        }
+
+        // Initialize the page
+        async function initialize() {
+            try {
+                const menProducts = await fetchMenProducts();
+                renderMenProducts(menProducts);
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
+
+            // Add event listener for search input
+            const searchInput = document.querySelector('#searchInput');
+            searchInput.addEventListener('input', (event) => {
+                searchProducts(event.target.value);
+            });
+        }
+
+        // Call initialize to start
+        initialize();
+
     </script>
 </body>
 

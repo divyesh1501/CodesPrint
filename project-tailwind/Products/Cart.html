@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                             </a>
-                
+
                             <a href="../Products/Products.html"
                                 class="block mt-4 lg:inline-block text-base font-normal lg:mt-0 lg:mx-4 text-gray-500 hover:text-black font-semibold">
                                 Products
@@ -96,7 +96,7 @@
             </div>
             <div class="flex gap-3 items-center justify-center">
                 <div class="relative  hidden lg:block" id='search'>
-                    <input type="text"
+                    <input type="text" id="searchInput"
                         class="bg-gray-200 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline"
                         placeholder="Search for products..." />
                     <div class="absolute top-0 right-0 mt-2">
@@ -110,11 +110,12 @@
                     </a>
                 </button>
                 <button class="text-gray-500 hover:text-black font-semibold">
-                    <a href="../Cart/Cart.html">
-                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg"></i>
+                    <a href="./Cart.html">
+                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg relative"></i>
+                        <span id="cartItemCount" class="text-red-500 text-xs absolute"></span>
                     </a>
                 </button>
-                <button class="text-gray-500 hover:text-black font-semibold">
+                <button class="text-gray-500 hover:text-black font-semibold ml-1">
                     <a href="../SignIn-SignUp/SignInForm.html">
                         <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
                     </a>
@@ -123,9 +124,11 @@
         </div>
 
     </header>
-    
+
     <h1 class="text-center py-10 font-bold text-3xl">Your Cart</h1>
-    <div id="cart" class="cart mt-12 md:mt-6  md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3"></div>
+    <div id="cart"
+        class="cart mt-12 md:mt-6  md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 grid place-content-center">
+    </div>
 
 
     <!-- Footer  -->
@@ -233,7 +236,7 @@
     </footer>
 
 
-    
+    <script src="cart.js"></script>
 </body>
 
 </html>

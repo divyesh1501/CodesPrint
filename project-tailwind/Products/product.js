@@ -1,3 +1,4 @@
+//Toggele Navbar
 let isOpen = false;
 
 function toggleHeader() {
@@ -38,15 +39,20 @@ function renderProducts(products) {
         const productElement = document.createElement('div');
         productElement.innerHTML = `
         <div class="item">
-        <div class="mb-5 shadow-lg rounded p-5">
-            <img src="${product.image}" alt="" class="rounded-t w-full h-56 p-5">
-            <h3 class="p-1 font-semibold text-lg line-clamp-1 border-b-2 cursor-pointer">${product.title}</h3>
-            <h4 class="p-2 capitalize lg:block hidden">${product.category}</h4>
-            <p class="p-2 font-semibold flex flex-col xl:gap-3 gap-2"> <span class="flex items-center gap-1" >Price Rs.${product.price} | ${product.rating.rate} <i class="fa-solid fa-star" style="color: #FFD43B;"></i></span>
-            <button onclick="addToCart(${product.id})" class="border border-black rounded px-2 py-1 uppercase text-xs justify-center font-bold fa-solid fa-cart-plus flex gap-1 "><span class="">Add to Cart</span></button>
-            </p>   
-        </div>   
-    </div>`;
+             <div class="mb-5 shadow-lg rounded p-5">
+                 <img src="${product.image}" alt="" class="rounded-t w-full h-56 p-5">
+                 <h3 class="p-1 font-semibold text-lg line-clamp-1 border-b-2 cursor-pointer">${product.title}</h3>
+                 <h4 class="p-2 capitalize lg:block hidden">${product.category}</h4>
+                 <p class="p-2 font-semibold flex flex-col xl:gap-3 gap-2">
+                     <span class="flex items-center gap-1">
+                        Price Rs.${product.price} | ${product.rating.rate} <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                     </span>
+                     <button onclick="addToCart(${product.id})" class="border border-black rounded px-2 py-1 uppercase text-xs justify-center font-bold fa-solid fa-cart-plus flex gap-1">
+                        <span class="">Add to Cart</span>
+                     </button>
+                </p>   
+            </div>   
+         </div>`;
         productsContainer.appendChild(productElement);
     });
 }
@@ -69,60 +75,11 @@ function addToCart(productId) {
                 image: product.image
             });
         }
-        renderCart();
+        saveCartToLocalStorage(); // Save to localStorage
+        updateCartItemCount(); // Update cart item count display
     } else {
         console.error(`Product with ID ${productId} not found.`);
     }
-}
-
-// Function to remove product from cart
-function removeFromCart(productId) {
-    cartItems = cartItems.filter(item => item.id !== productId);
-    renderCart();
-}
-
-// Function to render cart
-function renderCart() {
-    const cart = document.getElementById('cart');
-    cart.innerHTML = '';
-
-    cartItems.forEach(item => {
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-
-        // Product image
-        const image = document.createElement('img');
-        image.classList.add('product-image');
-        image.innerHTML = ``
-        // image.src = item.image;
-        // image.alt = item.title;
-        cartItem.appendChild(image);
-
-        // Product details
-        const details = document.createElement('div');
-        details.classList.add('product-details');
-        details.innerHTML = `
-        <div class="flex gap-3">
-            <div class="shadow-lg rounded">
-            <img src="${item.image}" alt="" class="rounded-t w-28 h-28 p-5">
-            </div>
-            <div class="shadow-lg rounded p-2">
-            <p>${item.title}</p>
-            <p>Rs.${item.price} </p>
-            <p>Total Price: Rs.${item.totalPrice}</p>
-                <div class="flex gap-3">
-                    <button onclick="removeFromCart(${item.id})"><i class="fa-solid fa-trash"></i></button>
-                    <button onclick="decreaseQuantity(${item.id})">-</button>
-                    ${item.quantity}
-                    <button onclick="increaseQuantity(${item.id})">+</button>
-                </div>
-            </div>
-        </div>  
-        `;
-        cartItem.appendChild(details);
-
-        cart.appendChild(cartItem);
-    });
 }
 
 // Function to get product by ID
@@ -131,28 +88,24 @@ function getProductById(productId) {
     return products.find(product => product.id === productId);
 }
 
-// Function to handle decreasing quantity
-function decreaseQuantity(productId) {
-    const existingCartItem = cartItems.find(item => item.id === productId);
-    if (existingCartItem) {
-        if (existingCartItem.quantity > 1) {
-            existingCartItem.quantity--;
-            existingCartItem.totalPrice -= existingCartItem.price;
-        } else {
-            removeFromCart(productId); // If quantity is 1, remove the item
-        }
-        renderCart();
+// Function to save cart items to localStorage
+function saveCartToLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
+
+// Function to load cart items from localStorage
+function loadCartFromLocalStorage() {
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
     }
 }
 
-// Function to handle increasing quantity
-function increaseQuantity(productId) {
-    const existingCartItem = cartItems.find(item => item.id === productId);
-    if (existingCartItem) {
-        existingCartItem.quantity++;
-        existingCartItem.totalPrice += existingCartItem.price;
-        renderCart();
-    }
+// Function to update the cart item count display
+function updateCartItemCount() {
+    const cartItemCountElement = document.getElementById('cartItemCount');
+    const totalCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+    cartItemCountElement.textContent = totalCount;
 }
 
 // Function to display products based on selected categories
@@ -167,17 +120,21 @@ async function displayProductsByCategory(selectedCategories = []) {
     filteredProducts.forEach(product => {
         const productElement = document.createElement('div');
         productElement.innerHTML = `
-        <div class="item">
-        <div class="mb-5 shadow-lg rounded p-5">
-            <img src="${product.image}" alt="" class="rounded-t w-full h-56 p-5">
-            <h3 class="p-1 font-semibold text-lg line-clamp-1 border-b-2 cursor-pointer">${product.title}</h3>
-            <h4 class="p-2 capitalize">${product.category}</h4>
-            <p class="p-2 font-semibold flex gap-1 items-center">Price Rs. ${product.price} | ${product.rating.rate}
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-            <button onclick="addToCart(${product.id})">Add to Cart</button>
-            </p>   
-        </div>   
-    </div>
+            <div class="item">
+                <div class="mb-5 shadow-lg rounded p-5">
+                    <img src="${product.image}" alt="" class="rounded-t w-full h-56 p-5">
+                    <h3 class="p-1 font-semibold text-lg line-clamp-1 border-b-2 cursor-pointer">${product.title}</h3>
+                    <h4 class="p-2 capitalize">${product.category}</h4>
+                    <p class="p-2 font-semibold flex flex-col xl:gap-3 gap-2">
+                     <span class="flex items-center gap-1">
+                        Price Rs.${product.price} | ${product.rating.rate} <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                     </span>
+                     <button onclick="addToCart(${product.id})" class="border border-black rounded px-2 py-1 uppercase text-xs justify-center font-bold fa-solid fa-cart-plus flex gap-1">
+                        <span class="">Add to Cart</span>
+                     </button>
+                </p>  
+                </div>   
+            </div>
         `;
         productDiv.appendChild(productElement);
     });
@@ -210,7 +167,6 @@ async function populateCategoryCheckboxes() {
             const label = document.createElement('label');
             label.textContent = category.toUpperCase();
 
-
             const div = document.createElement('div');
             div.classList.add('flex', 'flex-row');
             div.appendChild(checkbox);
@@ -231,7 +187,9 @@ async function initialize() {
     try {
         products = await fetchProducts();
         renderProducts(products);
-        await populateCategoryCheckboxes(); // Display categories initially
+        loadCartFromLocalStorage(); // Load cart items from localStorage
+        updateCartItemCount(); // Update cart item count display
+        populateCategoryCheckboxes(); // Populate category checkboxes
     } catch (error) {
         console.error('Error initializing page:', error);
     }

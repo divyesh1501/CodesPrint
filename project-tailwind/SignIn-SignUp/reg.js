@@ -1,19 +1,3 @@
-let isOpen = false;
-
-function toggleHeader() {
-    const headerElement = document.querySelector('.flex-grow');
-
-    if (isOpen) {
-        headerElement.classList.remove('block');
-        headerElement.classList.add('hidden');
-    } else {
-        headerElement.classList.remove('hidden');
-        headerElement.classList.add('block');
-    }
-
-    isOpen = !isOpen;
-}
-
 function registerUser() {
     let name = document.getElementById("name").value.trim();
     let email = document.getElementById("email").value.trim();
@@ -21,7 +5,7 @@ function registerUser() {
     let cpass = document.getElementById("cpass").value;
 
     // Regular expression for name validation (alphabet characters only)
-     let nameRegex = /^[A-Za-z\s]+$/;
+    let nameRegex = /^[A-Za-z\s]+$/;
 
     // Regular expression for email validation
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -78,29 +62,20 @@ function registerUser() {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("User registered successfully!");
+
+    // Store registration status
+    localStorage.setItem("registered", "true");
+
+    // Check registration status and redirect if necessary
+    checkRegistrationStatus();
 }
 
-
-function signInUser() {
-    let email = document.getElementById("email").value.trim();
-    let pass = document.getElementById("pass").value;
-
-    // Retrieve existing users data from localStorage
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Find user by email
-    let user = users.find(user => user.email === email);
-
-    if (!user) {
-        alert("User not found!");
-        return;
-    }
-
-    // Check if the password matches
-    if (pass === user.password) {
-        alert("Sign in successful!");
-    } else {
-        alert("Incorrect password!");
+function checkRegistrationStatus() {
+    let registered = localStorage.getItem("registered");
+    if (registered === "true") {
+        window.location.href = "SignInForm.html";
     }
 }
 
+// Initial check for registration status on page load
+// window.onload = checkRegistrationStatus;

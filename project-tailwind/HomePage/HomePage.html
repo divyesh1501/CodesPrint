@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <!-- Header  -->
-    <header>
+     <!-- Header  -->
+     <header>
         <div class="bg-black h-[38px] flex items-center justify-center sm:flex sm:items-center md:block">
             <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
                 <h1 class="flex-1 text-nowrap text-xs md:text-sm font-normal text-center">Sign up and get 20% off to
@@ -53,7 +53,6 @@
                                                 <span class="fa-solid fa-angle-down"></span>
                                             </a>
                                         </div>
-
                                         <div
                                             class="invisible absolute z-50 flex items-center w-full flex-col bg-gray-100 py-1 px-10 text-gray-800 shadow-xl group-hover:visible">
 
@@ -96,7 +95,7 @@
             </div>
             <div class="flex gap-3 items-center justify-center">
                 <div class="relative  hidden lg:block" id='search'>
-                    <input type="text"
+                    <input type="text" id="searchInput"
                         class="bg-gray-200 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline"
                         placeholder="Search for products..." />
                     <div class="absolute top-0 right-0 mt-2">
@@ -110,11 +109,12 @@
                     </a>
                 </button>
                 <button class="text-gray-500 hover:text-black font-semibold">
-                    <a href="../Cart/Cart.html">
-                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg"></i>
+                    <a href="../Products/Cart.html">
+                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg relative"></i>
+                        <span id="cartItemCount" class="text-red-500 text-xs absolute"></span>
                     </a>
                 </button>
-                <button class="text-gray-500 hover:text-black font-semibold">
+                <button class="text-gray-500 hover:text-black font-semibold ml-1">
                     <a href="../SignIn-SignUp/SignInForm.html">
                         <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
                     </a>
@@ -164,10 +164,11 @@
         <div
             class="uppercase col-span-2 text-white md:p-10 p-5 text-2xl md:text-2xl md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
             <div class="grid md:grid-cols-4 grid-cols-4 md:gap-20 text-nowrap justify-center">
-                <a href="../CategoryPage/Men.html" class="md:col-span-1 col-span-3 cursor-pointer">men's clothing</a>
-                <a href="../CategoryPage/Women.html" class="md:col-span-1 col-span-3 cursor-pointer">women's clothing</a>
+                <a href="../CategoryPage/Men.html" class="md:col-span-1 col-span-2 cursor-pointer">men</a>
+                <a href="../CategoryPage/Women.html" class="md:col-span-1  col-span-2 cursor-pointer">women</a>
                 <a href="../CategoryPage/Jewelery.html" class="md:col-span-1 col-span-2 cursor-pointer">jewelery</a>
-                <a href="../CategoryPage/Electronics.html" class="md:col-span-1 col-span-2 cursor-pointer">electronics</a>
+                <a href="../CategoryPage/Electronics.html"
+                    class="md:col-span-1 col-span-2 cursor-pointer">electronics</a>
                 <!-- <p class="md:col-span-1 col-span-2 cursor-pointer">prada</p>
                 <p class="md:col-span-1 col-span-2 cursor-pointer">calvin klein</p> -->
             </div>
@@ -188,7 +189,7 @@
         </div>
     </section>
     <hr class='md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3' />
-
+    <a href="../Products/Products.html"></a>
     <!-- Women-section -->
     <section class="md:mt-12 mt-12 md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3 " id='sale'>
         <h1 class='uppercase md:text-4xl font-black text-center text-xl'>Women's Clothing</h1>
@@ -211,10 +212,10 @@
 
                 <div class=" justify-center items-center">
                     <a class='relative' href="../CategoryPage/Men.html">
-                        <img src="images/DS1.jpg" alt=""
+                        <img src="images/DS1.avif" alt=""
                             class="object-cover md:w-[500px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
                         <h2
-                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-white cursor-pointer'>
                             men
                         </h2>
                     </a>
@@ -224,17 +225,17 @@
                         <img src="images/DS2.jpg" alt=""
                             class=" object-cover md:w-[780px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
                         <h2
-                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-white cursor-pointer'>
                             jewelery
                         </h2>
                     </a>
                 </div>
                 <div class=" justify-center items-center md:col-span-2">
                     <a class='relative' href="../CategoryPage/Electronics.html">
-                        <img src="images/DS3.jpg" alt=""
+                        <img src="images/DS3.jpeg" alt=""
                             class="object-cover md:w-[780px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
                         <h2
-                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-white cursor-pointer'>
                             electronics</h2>
                     </a>
                 </div>
@@ -243,7 +244,7 @@
                         <img src="images/DS4.jpg" alt=""
                             class=" object-cover md:w-[407px] md:h-[289px] w-[90vw] h-36 rounded-xl cursor-pointer transition duration-150 ease-in-out hover:scale-105" />
                         <h2
-                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-yellow-600 cursor-pointer'>
+                            class='md:top-5 top-0 md:left-3 left-1 absolute capitalize font-bold md:text-2xl text-white cursor-pointer'>
                             women</h2>
                     </a>
                 </div>
@@ -252,7 +253,7 @@
     </section>
 
     <!-- happy-cutomer -->
-   
+
     <section class='md:mx-5 lg-mx-5 xl:mx-auto mt-12 md:max-w-7xl lg:max-w-7xl mx-3 md:mb-0 mb-36 '>
         <div>
             <div class='flex md:items-center'>

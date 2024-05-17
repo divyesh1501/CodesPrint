@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Cart</title>
+    <title>User</title>
 </head>
 
 <body>
-    <!-- Header  -->
-    <header>
+     <!-- Header  -->
+     <header>
         <div class="bg-black h-[38px] flex items-center justify-center sm:flex sm:items-center md:block">
             <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
                 <h1 class="flex-1 text-nowrap text-xs md:text-sm font-normal text-center">Sign up and get 20% off to
@@ -96,7 +96,7 @@
             </div>
             <div class="flex gap-3 items-center justify-center">
                 <div class="relative  hidden lg:block" id='search'>
-                    <input type="text"
+                    <input type="text" id="searchInput"
                         class="bg-gray-200 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline"
                         placeholder="Search for products..." />
                     <div class="absolute top-0 right-0 mt-2">
@@ -110,11 +110,12 @@
                     </a>
                 </button>
                 <button class="text-gray-500 hover:text-black font-semibold">
-                    <a href="../Cart/Cart.html">
-                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg"></i>
+                    <a href="../Products/Cart.html">
+                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg relative"></i>
+                        <span id="cartItemCount" class="text-red-500 text-xs absolute"></span>
                     </a>
                 </button>
-                <button class="text-gray-500 hover:text-black font-semibold">
+                <button class="text-gray-500 hover:text-black font-semibold ml-1">
                     <a href="../SignIn-SignUp/SignInForm.html">
                         <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
                     </a>
@@ -124,142 +125,24 @@
 
     </header>
 
-    <!-- Cart-Section -->
-    <section class='md:mx-5 lg-mx-5 xl:mx-auto sm:max-w-7xl md:max-w-7xl lg:max-w-7xl mx-3 mt-6'>
-        <hr class='md:my-6 my-4' />
-
-        <!-- <p class='flex items-center gap-2 capitalize md:text-base text-xs text-gray-500' role='button'>
-            <a href="../HomePage/HomePage.html">home</a>
-            <i class="fa-solid fa-angle-right"></i>
-            <span class='text-black'>cart</span>
-        </p>
-
-        <div class='my-6'>
-            <h1 class='font-black md:text-4xl text-2xl uppercase'>your cart</h1>
-            <div class='flex justify-between md:gap-10 lg:gap-5 flex-col md:flex-col lg:flex-row '>
-
-                <div class='border rounded-xl md:p-5 p-2 md:my-6 my-4'>
-                    <div class='flex md:gap-5 gap-2 '>
-                        <img src="images/C1.png" alt=""
-                            class='md:h-[22vh] md:w-[12vw] lg:h-[15vh] lg:w-[8vw] h-[20vh] w-[25vw] rounded-xl' />
-                        <div class=''>
-                            <div class='flex space-x-14 md:space-x-80 lg:space-x-44 '>
-                                <p class='capitalize font-semibold md:text-base text-xs' role="button">gradiant graphic
-                                    t-shirt
-                                </p>
-                                <p>
-                                    <i class="fa-regular fa-trash-can text-lg" style="color: #ff0000;"
-                                        role="button"></i>
-                                </p>
-                            </div>
-                            <p class='capitalize lg:text-base text-xs'>size: <span class='text-gray-500'>large</span>
-                            </p>
-                            <p class='capitalize md:text-base text-xs'>color: <span class='text-gray-500'>white</span>
-                            </p>
-                            <div class='flex'>
-                                <p class='md:text-lg text-sm font-semibold flex-1 cur'>$145</p>
-                                <input
-                                    class='flex md:gap-5 gap-3 bg-gray-200 font-semibold md:p-2 p-1 rounded-full md:text-sm text-xs placeholder-black w-20 outline-none cursor-pointer'
-                                    placeholder='-      1     +' />
-                            </div>
-                        </div>
-                    </div>
-                    <hr class='md:my-6 my-4' />
-                    <div class='flex md:gap-5 gap-2 '>
-                        <img src="images/C2.png" alt=""
-                            class='md:h-[22vh] md:w-[12vw] lg:h-[15vh] lg:w-[8vw] h-[20vh] w-[25vw]  rounded-xl' />
-                        <div>
-                            <div class='flex space-x-24 md:space-x-96 lg:space-x-60'>
-                                <p class='capitalize font-semibold md:text-base text-xs'>checkered shirt</p>
-                                <p>
-                                    <i class="fa-regular fa-trash-can text-lg" style="color: #ff0000;"
-                                        role="button"></i>
-                                </p>
-                            </div>
-                            <p class='capitalize md:text-base text-xs'>size: <span class='text-gray-500'>medium</span>
-                            </p>
-                            <p class='capitalize md:text-base text-xs'>color: <span class='text-gray-500'>red</span></p>
-                            <div class='flex'>
-                                <p class='md:text-lg text-sm font-semibold flex-1'>$180</p>
-                                <input
-                                    class='flex md:gap-5 gap-3 bg-gray-200 font-semibold md:p-2 p-1 rounded-full md:text-sm text-xs placeholder-black w-20 outline-none cursor-pointer'
-                                    placeholder='-      1     +' />
-                            </div>
-                        </div>
-                    </div>
-                    <hr class='md:my-6 my-4' />
-                    <div class='flex md:gap-5 gap-2 '>
-                        <img src="images/C3.png" alt=""
-                            class='md:h-[22vh] md:w-[12vw] lg:h-[15vh] lg:w-[8vw] h-[20vh] w-[25vw]  rounded-xl' />
-                        <div>
-                            <div class='flex space-x-24 md:space-x-96 lg:space-x-60'>
-                                <p class=' capitalize font-semibold md:text-base text-xs'>skinny fit jeans</p>
-                                <p class=''>
-                                    <i class="fa-regular fa-trash-can text-lg" style="color: #ff0000;"
-                                        role="button"></i>
-                                </p>
-                            </div>
-                            <p class='capitalize md:text-base text-xs'>size: <span class='text-gray-500'>large</span>
-                            </p>
-                            <p class='capitalize md:text-base text-xs'>color: <span class='text-gray-500'>blue</span>
-                            </p>
-                            <div class='flex'>
-                                <p class='md:text-lg text-sm font-semibold flex-1'>$240</p>
-                                <input
-                                    class='flex md:gap-5 gap-3 bg-gray-200 font-semibold md:p-2 p-1 rounded-full md:text-sm text-xs placeholder-black w-20 outline-none cursor-pointer'
-                                    placeholder='-      1     +' />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                Checkout-Section
-                <div class=''>
-                    <div class='capitalize border rounded-xl p-5 md:my-6'>
-                        <h2 class='font-bold md:text-xl text-lg '>order summary</h2>
-                        <div class='flex items-center  md:my-6 my-4'>
-                            <p class='text-gray-500 md:text-base text-xs flex-1'>subtotal</p>
-                            <p class='md:text-base text-xs'>$565</p>
-                        </div>
-                        <div class='flex items-center  md:my-6 my-4'>
-                            <p class='text-gray-500 md:text-base text-xs flex-1'>discount(-20%)</p>
-                            <p class='text-red-500 md:text-base text-xs'>-$113</p>
-                        </div>
-                        <div class='flex items-center md:my-6 my-4'>
-                            <p class='text-gray-500 md:text-base text-xs flex-1'>delivery fee</p>
-                            <p class='md:text-base text-xs'>$015</p>
-                        </div>
-                        <hr class='md:my-6 my-4' />
-                        <div class='flex items-center md:my-6 my-4'>
-                            <p class='text-gray-500 md:text-base text-xs flex-1'>total</p>
-                            <p class='md:text-base text-xs'>$467</p>
-                        </div>
-                        <div class='flex justify-center md:gap-9 gap-1  md:my-6 my-4'>
-                            <input type="text" name="" id="" placeholder='Add promo code'
-                                class='bg-slate-200 p-2 rounded-full text-center w-80 outline-none' />
-                            <button type="submit"
-                                class='bg-black md:p-2 p-3 rounded-full text-center text-white capitalize w-32 md:text-base text-xs'>apply</button>
-                        </div>
-                        <div class='flex items-center gap-9  md:my-6 my-4'>
-                            <button type="submit"
-                                class='bg-black p-3 rounded-full  text-white md:text-base text-xs capitalize w-full grid place-content-center items-center'>
-                                <p class='flex items-center gap-2'>go to checkout
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </p>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <!-- User Details -->
+    <section class="mt-12 md:mt-6  md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
+        <div class="flex items-center  flex-col border border-black rounded py-2">
+            <div id="user-details" class="flex items-center justify-center flex-col py-2">
+                <h2 class="text-2xl font-semibold">User Details</h2>
+                <p><img src="./images/user.png" alt="" class="w-44 h-44"></p>
             </div>
-        </div> -->
-
-        <div id="cart">
-            <!-- Cart items will be added here dynamically -->
+            <div class="flex flex-col py-2">
+                <p><strong>Name:</strong> <span id="user-name"></span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
+            </div>
+            <button onclick="signOut()" class="bg-red-700 border-0 w-52 my-5 text-white py-2 rounded hover:bg-red-600">Sign Out</button>
+            <p class="text-center mb-5">New User..? <a href="./RegisterForm.html" class="text-blue-500">Register
+                Here.!</a></p>
         </div>
 
-
+    
     </section>
-
 
     <!-- Footer  -->
     <footer class="bg-slate-100 font-[sans-serif] mt-32">
@@ -365,24 +248,7 @@
         </div>
     </footer>
 
-
-    <script>
-        let isOpen = false;
-
-        function toggleHeader() {
-            const headerElement = document.querySelector('.flex-grow');
-
-            if (isOpen) {
-                headerElement.classList.remove('block');
-                headerElement.classList.add('hidden');
-            } else {
-                headerElement.classList.remove('hidden');
-                headerElement.classList.add('block');
-            }
-
-            isOpen = !isOpen;
-        }
-    </script>
+    <script src="user.js"></script>
 </body>
 
 </html>

@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <!-- Header  -->
-    <header>
+     <!-- Header  -->
+     <header>
         <div class="bg-black h-[38px] flex items-center justify-center sm:flex sm:items-center md:block">
             <div class="text-white flex py-2 items-center md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
                 <h1 class="flex-1 text-nowrap text-xs md:text-sm font-normal text-center">Sign up and get 20% off to
@@ -96,7 +96,7 @@
             </div>
             <div class="flex gap-3 items-center justify-center">
                 <div class="relative  hidden lg:block" id='search'>
-                    <input type="text"
+                    <input type="text" id="searchInput"
                         class="bg-gray-200 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline"
                         placeholder="Search for products..." />
                     <div class="absolute top-0 right-0 mt-2">
@@ -110,11 +110,12 @@
                     </a>
                 </button>
                 <button class="text-gray-500 hover:text-black font-semibold">
-                    <a href="../Cart/Cart.html">
-                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg"></i>
+                    <a href="../Products/Cart.html">
+                        <i class="fa-solid fa-cart-shopping md:text-2xl text-lg relative"></i>
+                        <span id="cartItemCount" class="text-red-500 text-xs absolute"></span>
                     </a>
                 </button>
-                <button class="text-gray-500 hover:text-black font-semibold">
+                <button class="text-gray-500 hover:text-black font-semibold ml-1">
                     <a href="../SignIn-SignUp/SignInForm.html">
                         <i class='fa-regular fa-circle-user md:text-2xl text-lg'></i>
                     </a>
@@ -125,9 +126,9 @@
     </header>
 
     <!-- LoginForm -->
-    <section class="md:mt-12 mt-12 md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3">
+    <section class="md:mt-12 mt-12 md:mx-5 lg-mx-5 xl:mx-auto md:max-w-7xl lg:max-w-7xl mx-3" >
 
-        <div class="flex flex-col items-center justify-center py-5">
+        <div class="flex flex-col items-center justify-center py-5" id="sign-in-form">
             <form action="">
                 <h1 class="text-center text-xl font-semibold py-5">Sign in with:</h1>
                 <p class="flex gap-10">
@@ -266,7 +267,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="signin.js"></script>
 </body>
-
 </html>
