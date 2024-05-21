@@ -182,6 +182,23 @@ async function populateCategoryCheckboxes() {
     }
 }
 
+// Function to search products
+function searchProducts(query) {
+    fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(products => {
+            const lowerCaseQuery = query.toLowerCase();
+            const filteredProducts = products.filter(product =>
+                product.title.toLowerCase().includes(lowerCaseQuery) ||
+                product.category.toLowerCase().includes(lowerCaseQuery)
+            );
+            renderProducts(filteredProducts);
+        })
+        .catch(error => {
+            console.error('Error fetching or filtering products:', error);
+        });
+}
+
 // Initialize the page
 async function initialize() {
     try {
@@ -193,6 +210,10 @@ async function initialize() {
     } catch (error) {
         console.error('Error initializing page:', error);
     }
+    const searchInput = document.querySelector('#searchInput');
+    searchInput.addEventListener('input', (event) => {
+        searchProducts(event.target.value); 
+    });
 }
 
 // Call initialize to start

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>CRUD</title>
+</head>
+
+<body>
+    <div class="flex flex-col gap-10 items-center">
+        <h1 class="text-2xl font-bold">Form</h1>
+        <form action="#" class="flex flex-col gap-10 justify-center items-center border border-black rounded p-5">
+            <div class="flex items-center gap-20">
+                <label for="name" class="capitalize font-semibold text-lg">Name:</label>
+                <input type="text" id="name" class="border border-black rounded w-56 p-2 outline-none" placeholder="Enter Your Name">
+            </div>
+            <div class="flex items-center gap-20">
+                <label for="email" class="capitalize font-semibold text-lg">Email:</label>
+                <input type="text" id="email" class="border border-black rounded w-56 p-2 outline-none" placeholder="Enter Your Email">
+            </div>
+            <div class="flex items-center gap-20">
+                <label for="num" class="capitalize font-semibold text-lg">Num:</label>
+                <input type="text" id="num" class="border border-black rounded w-56 p-2 outline-none" placeholder="Enter Your Contact Number">
+            </div>
+            <div class="ml-8">
+                <button type="button" class="bg-slate-600 text-white px-10 py-2 rounded hover:bg-slate-500" onclick="createData()">Submit</button>
+            </div>
+        </form>
+        <div id="msg" class="text-red-500"></div>
+
+        <h2 class="text-xl font-bold">List</h2>
+        <table class="border-collapse border border-black">
+            <thead>
+                <tr>
+                    <th class="border border-black px-4 py-2">Sr.No</th>
+                    <th class="border border-black px-4 py-2">Name</th>
+                    <th class="border border-black px-4 py-2">Email</th>
+                    <th class="border border-black px-4 py-2">Num</th>
+                    <th class="border border-black px-4 py-2 col-span-1" colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody id="root">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

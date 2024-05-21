@@ -46,9 +46,9 @@ function renderCartOnCartPage() {
                     </div>
                     <div class="shadow-lg rounded px-5 py-1">
                         <p>${item.title}</p>
-                        <p>Rs.${item.price}</p>
+                        <p>Rs.${item.price.toFixed(2)}</p>
                         <p>Quantity: ${item.quantity}</p>
-                        <p>Total Price: Rs.${item.totalPrice}</p>
+                        <p>Total Price: Rs.${item.totalPrice.toFixed(2)}</p>
                         <div class="flex gap-3">
                             <button onclick="removeFromCart(${item.id})"><i class="fa-solid fa-trash"></i></button>
                             <button onclick="decreaseQuantity(${item.id})">-</button>
@@ -68,7 +68,7 @@ function renderCartOnCartPage() {
         const totalCartPriceElement = document.createElement('div');
         totalCartPriceElement.innerHTML = `
             <div class="total-cart-price my-5">
-                <p class="font-bold text-lg">Total Cart Price : Rs.${totalCartPrice}</p>
+                <p class="font-bold text-lg">Total Cart Price : Rs.${totalCartPrice.toFixed(2)}</p>
             </div>
         `;
         cart.appendChild(totalCartPriceElement);
