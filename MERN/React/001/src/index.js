@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Acontext from './22-05/Acontext';
+import FormValidation from './23-05/FormValidation/FormValidation';
+// import RouterExapmle from './23-05/Router/RouterExample'
+// import UseReducerEx from './23-05/UseReducerEx';
+// import UseReducer from './23-05/UseReducer';
+// import Acontext from './22-05/Acontext';
 // import MultipleReturn from './22-05/MultipleReturn';
 // import Fetch from './22-05/Fetch';
 // import UseEffect from './22-05/UseEffect';
@@ -20,7 +24,11 @@ root.render(
     {/* <UseEffect /> */}
     {/* <Fetch /> */}
     {/* <MultipleReturn /> */}
-    <Acontext />
+    {/* <Acontext /> */}
+    {/* <UseReducer /> */}
+    {/* <UseReducerEx /> */}
+    {/* <RouterExapmle /> */}
+    <FormValidation />
   </React.StrictMode>
 );
 

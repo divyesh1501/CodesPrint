@@ -1,0 +1,31 @@
+*{
+    font-size: 18px;
+    color: black;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: wheat;
+    padding: 0px 20px;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+}
+button{
+    background: yellow;
+    border: 2px solid orangered;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+ul{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
