@@ -1,0 +1,10 @@
+.user-page{
+    display: grid;
+    place-content: center;
+}
+.email{
+    color: black;
+}
+p{
+    text-transform: capitalize;
+}

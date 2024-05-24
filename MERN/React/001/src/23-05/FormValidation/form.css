@@ -1,24 +1,78 @@
-.container {
+.title {
     display: grid;
     place-content: center;
 }
 
-.form {
-    display: grid;
-    gap: 20px;
-    place-content: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 10px;
-}
-.col{
+.form-validation {
     display: flex;
-    /* flex-direction: column; */
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
-span{
+
+.form-validation .row {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 100px;
+    padding: 25px;
+}
+
+.form-validation .row .col1 {
+    text-align: end;
+}
+
+label {
+    font-size: large;
+}
+
+input[type="text"],
+[type="email"],
+[type="password"],
+[type="number"],
+select {
+    width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #666;
+    outline: none;
+}
+
+input[type="text"],
+[type="email"],
+[type="password"],
+[type="number"],
+select,
+::placeholder {
+    text-align: center;
+    font-size: medium;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}
+
+span {
     color: red;
 }
-input{
-    outline: none;
+
+button {
+    height: 35px;
+    width: 300px;
+    font-size: 16px;
+    color: white;
+    background-color: blue;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.col2 {
+    padding-left: 500px;
+}
+.ac{
+    padding-left: 550px;
+}
+.link{
+    cursor: pointer;
+    color: blue;
 }

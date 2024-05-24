@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import FormValidation from './23-05/FormValidation/FormValidation';
+import './index.css'
+// import RegistrForm from './23-05/FormValidation/RegisterForm';
+import Form from './23-05/FormValidation/Form';
 // import RouterExapmle from './23-05/Router/RouterExample'
 // import UseReducerEx from './23-05/UseReducerEx';
 // import UseReducer from './23-05/UseReducer';
@@ -28,7 +30,7 @@ root.render(
     {/* <UseReducer /> */}
     {/* <UseReducerEx /> */}
     {/* <RouterExapmle /> */}
-    <FormValidation />
+    <Form />
   </React.StrictMode>
 );
 
