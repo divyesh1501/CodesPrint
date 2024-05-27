@@ -13,7 +13,7 @@ import Form from './23-05/FormValidation/Form';
 // import Form from './22-05/Form'
 // import Data from './22-05/Data';
 // import App from './22-05/App';
-// import Mobile from "./21-05/Mobile"
+// import Mobile from "./21-05/Mobile";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,3 +34,4 @@ root.render(
   </React.StrictMode>
 );
 
+ 
