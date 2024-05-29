@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css'
-import CustomHook from './28-05/Hooks/CustomHook';
-import CustomHookEx from './28-05/Hooks/CustomHookEx';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
+
+
+import UseEffectAPI from './29-05/UseEffectAPI';
+// import ReactForm from './29-05/ReactForm';
+// import HandlingEvent from './29-05/HandlingEvent';
+// import CustomHook from './28-05/Hooks/CustomHook';
+// import CustomHookEx from './28-05/Hooks/CustomHookEx';
 // import UseRefEx1 from './28-05/Hooks/UseRefEx1';
 // import UseRefEx from './28-05/Hooks/UseRefEx';
 // import UseRef from './28-05/Hooks/UseRef';
@@ -49,8 +57,11 @@ root.render(
     {/* <UseRef /> */}
     {/* <UseRefEx /> */}
     {/* <UseRefEx1 /> */}
-    <CustomHook />
-    <CustomHookEx />
+    {/* <CustomHook /> */}
+    {/* <CustomHookEx /> */}
+    {/* <HandlingEvent /> */}
+    {/* <ReactForm /> */}
+    <UseEffectAPI />
   </React.StrictMode>
 );
 
