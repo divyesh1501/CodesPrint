@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css'
+import ContextAPI from './30-5/ContextAPI';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 
 
-import UseEffectAPI from './29-05/UseEffectAPI';
+// import UseEffectAPI from './29-05/UseEffectAPI';
 // import ReactForm from './29-05/ReactForm';
 // import HandlingEvent from './29-05/HandlingEvent';
 // import CustomHook from './28-05/Hooks/CustomHook';
@@ -61,7 +62,8 @@ root.render(
     {/* <CustomHookEx /> */}
     {/* <HandlingEvent /> */}
     {/* <ReactForm /> */}
-    <UseEffectAPI />
+    {/* <UseEffectAPI /> */}
+    <ContextAPI />
   </React.StrictMode>
 );
 
