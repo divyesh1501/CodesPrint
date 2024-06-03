@@ -10,7 +10,7 @@ function Acontext() {
 
     return (
         <>
-            <GreetContext.Provider value={{greet, greet1}}>
+            <GreetContext.Provider value={{ greet, greet1 }}>
                 <Bcontext />
                 <h1 className='text-red-500'>hello</h1>
             </GreetContext.Provider>
