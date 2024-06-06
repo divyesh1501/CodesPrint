@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import 'bootstrap/dist/css/bootstrap.css';
-import './02-01/ReactPortal/modal.css'
+import './03-01/ReactPortal/modal.css'
 // import './index.css'
 
-import Modal from './02-01/ReactPortal/Modal';
+import Modal from './03-01/ReactPortal/Modal';
 // import Product from './02-01/Product';
 // import ContextAPI from './30-5/ContextAPI';
 // import UseEffectAPI from './29-05/UseEffectAPI';

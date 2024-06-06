@@ -9,21 +9,23 @@ function Modal() {
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
+  const handleCloseButton = (
+    <button onClick={closeModal} className='modal-btn'>Accept It</button>
+  )
+  
   const mainModal = (
-    <ShowModal closeModal={closeModal}>
-      <div className="modal-wrapper" onClick={closeModal} ></div>
-      <div className="modal-container">
-        <h2>STAY TUNED</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio iusto, distinctio deserunt quae vitae rem quos ad dolores amet consectetur!</p>
-        <button onClick={closeModal} className='modal-btn'>Accept It</button>
-      </div>
-    </ShowModal>
+    <ShowModal closeModal={closeModal} handleCloseButton={handleCloseButton}>
+      <h2>STAY TUNED</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio iusto, distinctio deserunt quae vitae rem quos ad dolores amet consectetur!</p>
+      {/* <button onClick={closeModal} className='modal-btn'>Accept It</button> */}
+    </ShowModal >
   )
 
   return (
     <>
       <button onClick={openModal} className='modal-btn'>Open Modal</button>
-      {showModal && mainModal}
+      {showModal && mainModal }
+    {/* < ShowModal closeModal={closeModal} /> */}
 
       <div>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum eius perferendis, consectetur ducimus officiis corrupti, labore dolorem autem iure quo delectus, ullam esse minima fuga veniam quasi reiciendis quibusdam. Quo.</p>
