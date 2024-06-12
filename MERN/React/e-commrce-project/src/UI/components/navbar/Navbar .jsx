@@ -53,23 +53,23 @@ function Navbar() {
                   </div>
                   <div className="space-y-6 border-t border-gray-200 px-4 py-6">
 
-                    <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    <Link to={'/allproducts'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'white' ? 'dark' : '', }}>
                       All Products
                     </Link>
                     <div className="flow-root">
-                      <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
+                      <Link to={'/order'} style={{ color: mode === 'white' ? 'dark' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
                         Order
                       </Link>
                     </div>
 
                     <div className="flow-root">
-                      <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                        admin
+                      <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'white' ? 'dark' : '', }}>
+                        Admin
                       </Link>
                     </div>
 
                     <div className="flow-root">
-                      <a className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      <a className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'white' ? 'dark' : '', }}>
                         Logout
                       </a>
                     </div>
@@ -90,7 +90,7 @@ function Navbar() {
                         alt=""
                         className="block h-auto w-5 flex-shrink-0"
                       />
-                      <span className="ml-3 block text-base font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>INDIA</span>
+                      <span className="ml-3 block text-base font-medium text-gray-900" style={{ color: mode === 'white' ? 'dark' : '', }}>INDIA</span>
                       <span className="sr-only">, change currency</span>
                     </a>
                   </div>
@@ -99,6 +99,8 @@ function Navbar() {
             </div>
           </Dialog>
         </Transition.Root>
+
+        
         {/* Desktop */}
         <header className="relative bg-white">
           <p className="flex h-10 items-center justify-center bg-pink-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8 mb-0" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
@@ -111,7 +113,7 @@ function Navbar() {
                 <button
                   type="button"
                   className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
-                  onClick={() => setOpen(true)} style={{ backgroundColor: mode === 'dark' ? 'rgb(80 82 87)' : '', color: mode === 'dark' ? 'white' : '', }}
+                  onClick={() => setOpen(true)} style={{ backgroundColor: mode === 'dark' ? 'rgb(80 82 87)' : '', color: mode === 'white' ? 'dark' : '', }}
                 >
                   <span className="sr-only">Open menu</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -142,9 +144,9 @@ function Navbar() {
                       Admin
                     </Link>
 
-                    <a className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      Logout
-                    </a>
+                    <Link to={'/login'} className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Login
+                    </Link>
                   </div>
 
                   <div className="hidden lg:ml-8 lg:flex">
