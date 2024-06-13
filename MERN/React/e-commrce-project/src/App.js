@@ -16,6 +16,7 @@ import Signup from './UI/pages/registration/Signup';
 import ProductInfo from './UI/pages/prductInfo/ProductInfo';
 import AddProduct from './UI/pages/admin/pages/AddProduct';
 import UpdateProduct from './UI/pages/admin/pages/UpdateProduct';
+import Profile from './UI/components/userprofile/Profile';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='/allproducts' element={<Allproducts />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/profile' element={<Profile />} />
             <Route path='/productinfo/:id' element={<ProductInfo />} />
             <Route path='/addproduct' element={<AddProduct />} />
             <Route path='/updateproduct' element={<UpdateProduct />} />

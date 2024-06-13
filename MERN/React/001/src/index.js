@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './03-01/ReactPortal/modal.css'
 // import './index.css'
 
-import Modal from './03-01/ReactPortal/Modal';
+// import Modal from './03-01/ReactPortal/Modal';
 // import Product from './02-01/Product';
 // import ContextAPI from './30-5/ContextAPI';
 // import UseEffectAPI from './29-05/UseEffectAPI';
@@ -29,7 +29,7 @@ import Modal from './03-01/ReactPortal/Modal';
 // import UseReducer from './23-05/UseReducer';
 // import Acontext from './22-05/Acontext';
 // import MultipleReturn from './22-05/MultipleReturn';
-// import Fetch from './22-05/Fetch';
+import Fetch from './22-05/Fetch';
 // import UseEffect from './22-05/UseEffect';
 // import Form from './22-05/Form'
 // import Data from './22-05/Data';
@@ -45,7 +45,7 @@ root.render(
     {/* <Data /> */}
     {/* <Form /> */}
     {/* <UseEffect /> */}
-    {/* <Fetch /> */}
+    <Fetch />
     {/* <MultipleReturn /> */}
     {/* <Acontext /> */}
     {/* <UseReducer /> */}
@@ -67,7 +67,7 @@ root.render(
     {/* <UseEffectAPI /> */}
     {/* <ContextAPI /> */}
     {/* <Product /> */}
-    <Modal />
+    {/* <Modal /> */}
   </React.StrictMode>
 );
 

@@ -1,10 +1,12 @@
 import React, { Fragment, useContext, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FiSun } from 'react-icons/fi'
 import { BsFillCloudSunFill } from 'react-icons/bs'
 import { RxCross2 } from 'react-icons/rx'
 import myContext from '../../context/data/myContext'
+import { useCookies } from 'react-cookie'
+import { toast } from 'react-toastify'
 
 function Navbar() {
 
@@ -12,6 +14,24 @@ function Navbar() {
 
   const context = useContext(myContext);
   const { mode, toggleMode } = context;
+
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+      if (!cookies.user) {
+          toast.error('You are not logged in!');
+          navigate('/'); // Navigate to homepage or login page
+      } else {
+          navigate('/profile'); // Navigate to profile page
+      }
+  };
+
+  const handleLogout = () => {
+      removeCookie('user', { path: '/' });
+      toast.success('Logged out successfully!');
+      navigate('/'); // Navigate to homepage or login page after logout
+  };
   return (
     <>
       <div className="bg-white sticky top-0 z-50  ">
@@ -144,7 +164,7 @@ function Navbar() {
                       Admin
                     </Link>
 
-                    <Link to={'/login'} className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    <Link to={'/login'} className="text-sm font-medium text-gray-700 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       Login
                     </Link>
                   </div>
@@ -160,12 +180,12 @@ function Navbar() {
                     </a>
                   </div>
                   <div className="hidden lg:ml-8 lg:flex">
-                    <a href="#" className="flex items-center text-gray-700 ">
+                    <Link to={'/profile'} onClick={handleProfileClick} className="flex items-center text-gray-700 ">
                       <img
                         className="inline-block w-10 h-10 rounded-full"
                         src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
                         alt="Dan_Abromov" />
-                    </a>
+                    </Link>
                   </div>
                   {/* Search */}
                   <div className="flex lg:ml-6">

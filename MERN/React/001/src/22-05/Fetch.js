@@ -1,32 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 function Fetch() {
     const [users, setUsers] = useState([]);
-    console.log("🚀 ~ Fetch ~ users:", users)
+    console.log("🚀 ~ Fetch ~ users:", users);
 
     useEffect(() => {
-        fetch('https://api.github.com/users')
+        fetch('http://dummyjson.com/users')
             .then(response => response.json())
-            .then(data => setUsers(data))
-            .catch(error => console.error(error))
-    }, [])
+            .then(data => {
+                console.log("🚀 ~ useEffect ~ data:", data);
+                return setUsers(data.users); // Adjusted to access the array of users
+            })
+            .catch(error => console.error('Error fetching users:', error));
+    }, []);
 
     return (
         <>
             <h1>User List</h1>
             <ul>
                 {
-                    users.map(user => {
-                        return <li key={user.id}>
-                            <a href={user.html_url}>
-                                {user.login}
-                            </a>
+                    users.map(user => (
+                        <li key={user.id}>
+                            {user.firstName}
                         </li>
-                    })
+                    ))
                 }
             </ul>
         </>
-    )
+    );
 }
 
-export default Fetch
+export default Fetch;

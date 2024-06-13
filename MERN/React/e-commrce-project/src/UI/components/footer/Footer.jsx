@@ -60,7 +60,7 @@ export default function Footer() {
 
       <div className="bg-gray-200" style={{ backgroundColor: mode === 'dark' ? 'rgb(55 57 61)' : '', color: mode === 'dark' ? 'white' : '', }}>
 
-        <div className="container px-3 py-3 mx-auto flex items-center sm:flex-row flex-col">
+        <div className="container px-3 py-3 mx-auto flex items-center sm:flex-row flex-col" >
           <Link to={'/'} className='flex'>
             <div className="flex ">
               <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>E-Bharat</h1>
