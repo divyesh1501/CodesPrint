@@ -17,22 +17,30 @@ function Login() {
 
         if (cookies.user) {
             // User is already logged in
-            toast.warning('User already logged in!');
+            toast.warning('User already logged in!',{
+                autoClose: 3000,
+            });
             return;
         }
 
         if (existingData[data.email] && existingData[data.email].password === data.password) {
-            toast.success('Login successful!');
+            toast.success('Login successful!',{
+                autoClose: 3000,
+            });
             setCookie('user', existingData[data.email], { path: '/' }); // Set the user cookie
-            navigate('/profile'); // Redirect to profile or any other protected route
+            navigate('/'); // Redirect to home or any other protected route
         } else {
-            toast.error('Email or password is incorrect');
+            toast.error('Email or password is incorrect',{
+                autoClose: 3000,
+            });
         }
     };
 
     const handleErrors = (errors) => {
         for (const error in errors) {
-            toast.error(errors[error].message);
+            toast.error(errors[error].message,{
+                autoClose: 3000,
+            });
         }
     };
 

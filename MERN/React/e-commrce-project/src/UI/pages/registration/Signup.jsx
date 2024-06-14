@@ -24,7 +24,9 @@ function Signup() {
 
             // Check if email already exists
             if (existingData[data.email]) {
-                toast.error('Email already registered!');
+                toast.error('Email already registered!', {
+                    autoClose: 3000,
+                });
                 return;
             }
 
@@ -35,19 +37,25 @@ function Signup() {
             setCookie('formData', updatedData, { path: '/' });
 
             // Show success message
-            toast.success('Registration successful!');
+            toast.success('Registration successful!', {
+                autoClose: 3000,
+            });
 
             // Reset the form after submission
             reset();
         } catch (error) {
             console.error('Error during registration:', error);
-            toast.error('Error during registration');
+            toast.error('Error during registration', {
+                autoClose: 3000,
+            });
         }
     };
 
     const handleErrors = (errors) => {
         for (const error in errors) {
-            toast.error(errors[error].message);
+            toast.error(errors[error].message, {
+                autoClose: 3000,
+            });
         }
     };
 

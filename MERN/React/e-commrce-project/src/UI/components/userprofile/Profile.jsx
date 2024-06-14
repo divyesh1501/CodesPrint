@@ -14,7 +14,9 @@ export default function Profile() {
 
     const logoutHandler = () => {
         removeCookies('user');
-        toast.error('You have been logged out!');
+        toast.error('You have been logged out!',{
+            autoClose: 3000,
+        });
         navigate('/');
     };
 
