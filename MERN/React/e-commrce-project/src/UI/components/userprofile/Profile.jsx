@@ -30,7 +30,7 @@ export default function Profile() {
                     <h1>User Details</h1>
                     {userData ? (
                         <>
-                            <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" alt="User" className='w-44 h-44' />
+                            <img src="https://cdn-icons-png.flaticon.com/128/3899/3899618.png" alt="User" className='w-44 h-44' />
 
                             <div>
                                 <h3 className='my-3'>

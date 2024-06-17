@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { Cookies } from "react-cookie";
 
-const initialState  = [];
+// const initialState = Cookies.cart ? JSON.parse("cart") : [];
+const initialState = JSON.parse(localStorage.getItem('cart')) ?? [];
 
 const cartSlice = createSlice({
     name: 'cart',
