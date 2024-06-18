@@ -5,7 +5,7 @@ import RatingStars from '../../components/ratingstar/RatingStars'
 
 function Allproducts() {
   const context = useContext(myContext)
-  const { mode, products } = context
+  const { mode, products, addCart } = context
   return (
     <Layout>
       <section className="text-gray-600 body-font">
@@ -18,19 +18,19 @@ function Allproducts() {
           <div className="flex flex-wrap -m-4">
             {
               products.map((item, index) => {
-                const { image, price, rating: { rate }, title } = item;
+                const { image, price, category, rating: { rate }, title } = item;
                 return (<div key={index} className="p-4 md:w-1/2 lg:w-1/4  drop-shadow-lg" >
                   <div className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
                     <div className="flex justify-center cursor-pointer" >
                       <img className=" rounded-2xl w-full h-80 p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out" src={image} alt="blog" />
                     </div>
                     <div className="p-5 border-t-2">
-                      <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" style={{ color: mode === 'dark' ? 'white' : '', }}>One5</h2>
+                      <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" style={{ color: mode === 'dark' ? 'white' : '', }}>{category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h2>
                       <h1 className="title-font text-lg font-medium text-gray-900 mb-3 line-clamp-1" style={{ color: mode === 'dark' ? 'white' : '', }}>{title}</h1>
                       <p className="leading-relaxed mb-3"><RatingStars rating={rate} /> </p>
                       <p className="leading-relaxed mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>₹ {price}</p>
                       <div className=" flex justify-center">
-                        <button type="button" className="focus:outline-none text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Add To Cart</button>
+                        <button type="button" onClick={() => addCart(item)} className="focus:outline-none text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Add To Cart</button>
 
                       </div>
                     </div>

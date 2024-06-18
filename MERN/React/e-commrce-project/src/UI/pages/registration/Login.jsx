@@ -7,7 +7,9 @@ import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register,
+        handleSubmit,
+    } = useForm();
     const [cookies, setCookie] = useCookies(['formData', 'user']);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
@@ -17,20 +19,26 @@ function Login() {
 
         if (cookies.user) {
             // User is already logged in
-            toast.warning('User already logged in!',{
+            toast.warning('User already logged in!', {
                 autoClose: 3000,
             });
             return;
         }
 
         if (existingData[data.email] && existingData[data.email].password === data.password) {
-            toast.success('Login successful!',{
+            toast.success('Login successful!', {
                 autoClose: 3000,
             });
-            setCookie('user', existingData[data.email], { path: '/' }); // Set the user cookie
+
+            // Set the user cookie
+            setCookie('user', existingData[data.email], { path: '/' });
+
+            // Set data in localStorage
+            localStorage.setItem('user', JSON.stringify(existingData[data.email]));
+
             navigate('/'); // Redirect to home or any other protected route
         } else {
-            toast.error('Email or password is incorrect',{
+            toast.error('Email or password is incorrect', {
                 autoClose: 3000,
             });
         }
@@ -38,7 +46,7 @@ function Login() {
 
     const handleErrors = (errors) => {
         for (const error in errors) {
-            toast.error(errors[error].message,{
+            toast.error(errors[error].message, {
                 autoClose: 3000,
             });
         }
@@ -62,7 +70,7 @@ function Login() {
                                 name='email'
                                 className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
                                 placeholder='Email'
-                                {...register('email', { 
+                                {...register('email', {
                                     required: 'Email is required',
                                     pattern: {
                                         value: /\S+@\S+\.\S+/,
@@ -77,7 +85,7 @@ function Login() {
                                 name='password'
                                 className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none pr-10'
                                 placeholder='Password'
-                                {...register('password', { 
+                                {...register('password', {
                                     required: 'Password is required',
                                     minLength: {
                                         value: 6,

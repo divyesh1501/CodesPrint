@@ -7,13 +7,7 @@ import { useCookies } from 'react-cookie';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Signup() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-        setError
-    } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [cookies, setCookie] = useCookies(['formData']);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -24,38 +18,33 @@ function Signup() {
 
             // Check if email already exists
             if (existingData[data.email]) {
-                toast.error('Email already registered!', {
-                    autoClose: 3000,
-                });
+                toast.error('Email already registered!', { autoClose: 3000 });
                 return;
             }
 
             // Merge new data with existing data
             const updatedData = { ...existingData, [data.email]: data };
 
-            // Set updated data back into cookies
+            // Set updated data in cookies
             setCookie('formData', updatedData, { path: '/' });
 
+            // Set data in localStorage
+            localStorage.setItem('formData', JSON.stringify(updatedData));
+
             // Show success message
-            toast.success('Registration successful!', {
-                autoClose: 3000,
-            });
+            toast.success('Registration successful!', { autoClose: 3000 });
 
             // Reset the form after submission
             reset();
         } catch (error) {
             console.error('Error during registration:', error);
-            toast.error('Error during registration', {
-                autoClose: 3000,
-            });
+            toast.error('Error during registration', { autoClose: 3000 });
         }
     };
 
     const handleErrors = (errors) => {
         for (const error in errors) {
-            toast.error(errors[error].message, {
-                autoClose: 3000,
-            });
+            toast.error(errors[error].message, { autoClose: 3000 });
         }
     };
 
@@ -68,7 +57,7 @@ function Signup() {
             <div className='container px-3 py-5 mx-auto flex justify-center items-center'>
                 <div className='bg-gray-800 px-3 py-10 rounded-xl'>
                     <form onSubmit={handleSubmit(onSubmit, handleErrors)} className='form'>
-                        <div className="">
+                        <div>
                             <h1 className='text-center text-white text-xl mb-4 font-bold'>Signup</h1>
                         </div>
                         <div>
@@ -77,6 +66,15 @@ function Signup() {
                                 name='name'
                                 placeholder='Name'
                                 {...register('name', { required: 'Name is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='text'
+                                name='userId'
+                                placeholder='User ID'
+                                {...register('userId', { required: 'User ID is Required' })}
                                 className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
                             />
                         </div>
@@ -151,3 +149,4 @@ function Signup() {
 }
 
 export default Signup;
+
