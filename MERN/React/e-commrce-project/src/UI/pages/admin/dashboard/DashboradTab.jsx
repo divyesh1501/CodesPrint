@@ -10,9 +10,20 @@ import RatingStars from '../../../components/ratingstar/RatingStars';
 
 function DashboardTab() {
     const context = useContext(myContext)
-    const { mode, products, setFormForUpdate, deleteProduct } = context
+    const { mode, products, setFormForUpdate, deleteProduct, order, userData } = context
+    console.log("🚀 ~ DashboardTab ~ userData:", userData)
     console.log("🚀 ~ DashboardTab ~ products:", products)
-    let [isOpen, setIsOpen] = useState(false)
+    let [isOpen, setIsOpen] = useState(false);
+    
+    const [userDataState, setUserDataState] = useState([]);
+    console.log("🚀 ~ DashboardTab ~ userDataState:", userDataState)
+
+    useEffect(() => {
+        if (userData) {
+            setUserDataState(userData);
+        }
+    }, [userData]);
+
 
     function closeModal() {
         setIsOpen(false)
@@ -21,6 +32,7 @@ function DashboardTab() {
     function openModal() {
         setIsOpen(true)
     }
+
     return (
         <>
             <div className="container px-3 mx-auto">
@@ -109,7 +121,7 @@ function DashboardTab() {
                                                             {category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                                                         </td>
                                                         <td className="px-6 py-4">
-                                                            <RatingStars rating={rate}/> 
+                                                            <RatingStars rating={rate} />
                                                         </td>
                                                         {/* <td className="px-6 py-4 line-clamp-1">
                                                             {description}
@@ -136,92 +148,54 @@ function DashboardTab() {
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            {/* <Order order={order} setOrder={setOrder} setLoading={setLoading} /> */}
                             <div className="relative overflow-x-auto mb-16">
-                                <h1 className=' text-center mb-5 text-3xl font-semibold underline' style={{ color: mode === 'dark' ? 'white' : '' }}>Order Details</h1>
-                                <table className="w-full text-sm text-left" >
-                                    <thead className="text-xs text-black uppercase bg-gray-200 " style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '' }}>
-                                        <tr style={{ color: mode === 'dark' ? 'white' : '' }}>
-                                            <th scope="col" className="px-6 py-3">
-                                                Payment Id
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Image
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Title
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Price
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Category
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Name
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Address
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Pincode
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Phone Number
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Email
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Date
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className='text-black'>
-
-                                        <tr className={`bg-gray-50 border-b ${mode === 'dark' ? 'dark:border-gray-700' : ''}`} style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }} >
-                                            <td className="px-6 py-4 " >
-                                                3393939
-                                            </td>
-                                            <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
-                                                <img className='w-16' src="https://dummyimage.com/720x400" alt="img" />
-                                            </th>
-                                            <td className="px-6 py-4">
-                                                Title
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                ₹100
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                pots
-                                            </td>
-
-                                            <td className="px-6 py-4">
-                                                name
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                india
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                82828
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                929929929929
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                kkakka@gmail.com
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                12 Aug 2019
-                                            </td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-
+                                <h1 className='text-center mb-5 text-3xl font-semibold underline' style={{ color: mode === 'dark' ? 'white' : '' }}>Order Details</h1>
+                                {order.map((allorder, index) => {
+                                    return (
+                                        <table className="w-full text-sm text-left" key={index}>
+                                            <thead className="text-xs text-black uppercase bg-gray-200" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '' }}>
+                                                <tr style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                    <th scope="col" className="px-6 py-3">Sr. No.</th>
+                                                    <th scope="col" className="px-6 py-3">Payment Id</th>
+                                                    <th scope="col" className="px-6 py-3">Image</th>
+                                                    <th scope="col" className="px-6 py-3">Title</th>
+                                                    <th scope="col" className="px-6 py-3">Price</th>
+                                                    <th scope="col" className="px-6 py-3">Category</th>
+                                                    <th scope="col" className="px-6 py-3">Name</th>
+                                                    <th scope="col" className="px-6 py-3">Address</th>
+                                                    <th scope="col" className="px-6 py-3">Pincode</th>
+                                                    <th scope="col" className="px-6 py-3">Phone Number</th>
+                                                    <th scope="col" className="px-6 py-3">Email</th>
+                                                    <th scope="col" className="px-6 py-3">Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className='text-black'>
+                                                {allorder.cartItems.map((item, index) => {
+                                                    const { title, description, category, image, price } = item;
+                                                    return (
+                                                        <tr key={index} className={`bg-gray-50 border-b ${mode === 'dark' ? 'dark:border-gray-700' : ''}`} style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }}>
+                                                            <td className="px-6 py-4">{index + 1}.</td>
+                                                            <td className="px-6 py-4">{allorder.paymentId}</td>
+                                                            <td className="px-6 py-4"><img className='w-16' src={image} alt="img" /></td>
+                                                            <td className="px-6 py-4 line-clamp-1">{title}</td>
+                                                            <td className="px-6 py-4">{price}</td>
+                                                            <td className="px-6 py-4">{category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</td>
+                                                            <td className="px-6 py-4">{allorder.addressInfo.name}</td>
+                                                            <td className="px-6 py-4 line-clamp-1">{allorder.addressInfo.address}</td>
+                                                            <td className="px-6 py-4">{allorder.addressInfo.pincode}</td>
+                                                            <td className="px-6 py-4">{allorder.addressInfo.phoneNumber}</td>
+                                                            <td className="px-6 py-4">{allorder.email}</td>
+                                                            <td className="px-6 py-4">{allorder.date}</td>
+                                                        </tr>
+                                                    )
+                                                })}
+                                            </tbody>
+                                        </table>
+                                    )
+                                })}
                             </div>
                         </TabPanel>
+
                         <TabPanel>
                             {/* <User addressInfo={addressInfo} setAddressInfo={setAddressInfo} setLoading={setLoading} /> */}
                             <div className="relative overflow-x-auto mb-10">
@@ -232,54 +206,54 @@ function DashboardTab() {
                                             <th scope="col" className="px-6 py-3">
                                                 S.No
                                             </th>
-
                                             <th scope="col" className="px-6 py-3">
                                                 Name
                                             </th>
                                             <th scope="col" className="px-6 py-3">
-                                                Address
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Pincode
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Phone Number
+                                                Uid
                                             </th>
                                             <th scope="col" className="px-6 py-3">
                                                 Email
                                             </th>
                                             <th scope="col" className="px-6 py-3">
-                                                Date
+                                                user type
                                             </th>
+                                            {/* <th scope="col" className="px-6 py-3">
+                                                Phone Number
+                                            </th> */}
                                         </tr>
                                     </thead>
-                                    <tbody className='text-black'>
 
-                                        <tr className={`bg-gray-50 border-b ${mode === 'dark' ? 'dark:border-gray-700' : ''}`} style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }} >
-                                            <td className="px-6 py-4">
-                                                1.
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                Name
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                Address
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                181919
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                1991818818
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                kkk@gmail.com
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                12 Aug 2019
-                                            </td>
+                                    {Object.keys(userDataState).length > 0 ? (
+                                        Object.values(userDataState).map((user, index) => (
+                                            <tbody key={index} className='text-black'>
+                                                <tr className={`bg-gray-50 border-b ${mode === 'dark' ? 'dark:border-gray-700' : ''}`}
+                                                    style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }} >
+                                                    <td className="px-6 py-4">
+                                                        {index + 1}
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        {user.name}
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        {user.userId}
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        {user.email}
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        {user.userType.charAt(0).toUpperCase() + user.userType.slice(1).toLowerCase()}
+                                                    </td>
+                                                    {/* <td className="px-6 py-4">
+                                                        {user.email}
+                                                    </td> */}
+                                                </tr>
+                                            </tbody>
+                                        ))
+                                    ) : (
+                                        <p>No user data available</p>
+                                    )}
 
-                                        </tr>
-                                    </tbody>
                                 </table>
                             </div>
                         </TabPanel>

@@ -14,36 +14,67 @@ function Login() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
+    // const onSubmit = (data) => {
+    //     const existingData = cookies.formData || {};
+
+    //     if (cookies.user) {
+    //         // User is already logged in
+    //         toast.warning('User already logged in!', {
+    //             autoClose: 3000,
+    //         });
+    //         return;
+    //     }
+
+    //     if (existingData[data.email] && existingData[data.email].password === data.password) {
+    //         toast.success('Login successful!', {
+    //             autoClose: 3000,
+    //         });
+
+    //         // Set the user cookie
+    //         setCookie('user', existingData[data.email], { path: '/' });
+
+    //         // Set data in localStorage
+    //         localStorage.setItem('user', JSON.stringify(existingData[data.email]));
+
+    //         navigate('/'); // Redirect to home or any other protected route
+    //     } else {
+    //         toast.error('Email or password is incorrect', {
+    //             autoClose: 3000,
+    //         });
+    //     }
+    // };
+
     const onSubmit = (data) => {
-        const existingData = cookies.formData || {};
-
+        // Check for existing logged-in user
         if (cookies.user) {
-            // User is already logged in
-            toast.warning('User already logged in!', {
-                autoClose: 3000,
-            });
-            return;
+          toast.warning('User already logged in!', {
+            autoClose: 3000,
+          });
+          return;
         }
-
-        if (existingData[data.email] && existingData[data.email].password === data.password) {
-            toast.success('Login successful!', {
-                autoClose: 3000,
-            });
-
-            // Set the user cookie
-            setCookie('user', existingData[data.email], { path: '/' });
-
-            // Set data in localStorage
-            localStorage.setItem('user', JSON.stringify(existingData[data.email]));
-
-            navigate('/'); // Redirect to home or any other protected route
+    
+        // Retrieve data from localStorage
+        const formData = JSON.parse(localStorage.getItem('formData'));
+    
+        if (formData && formData[data.email] && formData[data.email].password === data.password) {
+          toast.success('Login successful!', {
+            autoClose: 3000,
+          });
+    
+          // Set the user cookie
+          setCookie('user', formData[data.email], { path: '/' });
+    
+          navigate('/'); // Redirect to home or any other protected route
         } else {
-            toast.error('Email or password is incorrect', {
-                autoClose: 3000,
-            });
+          toast.error('Email or password is incorrect', {
+            autoClose: 3000,
+          });
         }
-    };
-
+      };
+    
+    //   const togglePasswordVisibility = () => {
+    //     setShowPassword(prevShowPassword => !prevShowPassword);
+    //   };
     const handleErrors = (errors) => {
         for (const error in errors) {
             toast.error(errors[error].message, {

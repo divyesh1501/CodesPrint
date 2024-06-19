@@ -18,7 +18,7 @@ function MyState(props) {
     };
 
     const [products, setProducts] = useState([]);
-    const [prductCard, setProductCard] = useState([])
+    const [productCard, setProductCard] = useState([])
     const [newProduct, setNewProduct] = useState({
         title: "",
         price: "",
@@ -379,33 +379,69 @@ function MyState(props) {
     };
 
     // ============get-order============================
-    // const [order, setOrder] = useState([]);
+    const [order, setOrder] = useState([]);
 
-    // const getOrderData = async () => {
-    //   try {
-    //     const result = await getItem(collection( "orders"))
-    //     const ordersArray = [];
-    //     result.forEach((doc) => {
-    //       ordersArray.push(doc.data());
-    //     });
-    //     setOrder(ordersArray);
-    //     console.log(ordersArray)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // }
+    const getOrderData = async () => {
+        try {
+            const result = localStorage.getItem('orders');
+            if (result) {
+                const ordersArray = JSON.parse(result);
+                setOrder(ordersArray);
+            }
+        } catch (error) {
+            console.log(error); // Handle errors appropriately
+        }
+    };
 
+    useEffect(() => {
+        getOrderData();
+    }, []);
 
-    // useEffect(() => {
-    //   getProductData();
-    //   getOrderData()
+    // ============get-user-data===================
+    const [userData, setUserData] = useState([]);
 
-    // }, []);
+    const getUserData = async () => {
+        try {
+            const result = localStorage.getItem('formData');
+            if (result) {
+                const userArray = JSON.parse(result);
+                setUserData(userArray);
+                console.log("🚀 ~ getUserData ~ userArray:", userArray)
+            }
+        } catch (error) {
+            console.log(error); // Handle errors appropriately
+        }
+    };
 
-   
+    useEffect(() => {
+        getUserData();
+    }, []);
+    // ============filter-product===================
+
+    const [searchkey, setSearchkey] = useState('')
+    const [filterType, setFilterType] = useState('')
+    const [filterPrice, setFilterPrice] = useState('')
+
+    // ===============homepage-filter===========================
+    const filteredProducts = productCard.filter((obj) => {
+        const matchesSearchKey = searchkey ? obj.title.toLowerCase().includes(searchkey.toLowerCase()) : true;
+        const matchesFilterType = filterType ? obj.category.toLowerCase() === filterType.toLowerCase() : true;
+        const matchesFilterPrice = filterPrice ? obj.price <= filterPrice : true;
+        return matchesSearchKey && matchesFilterType && matchesFilterPrice;
+    });
+    
+
+    // ===============allproduct-filter===========================
+    const filteredAllProducts = products.filter((obj) => {
+        const matchesSearchKey = searchkey ? obj.title.toLowerCase().includes(searchkey.toLowerCase()) : true;
+        const matchesFilterType = filterType ? obj.category.toLowerCase() === filterType.toLowerCase() : true;
+        const matchesFilterPrice = filterPrice ? obj.price <= filterPrice : true;
+        return matchesSearchKey && matchesFilterType && matchesFilterPrice;
+    });
+    
 
     return (
-        <MyContext.Provider value={{ mode, toggleMode, products, prductCard, setProducts, newProduct, setNewProduct, addProduct, updateProduct, deleteProduct, setFormForUpdate, handleInputChange, addCart, name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow, incrementQuantity, decrementQuantity, deleteCartItem, totalAmount, cartItems, shipping, grandTotal }}>
+        <MyContext.Provider value={{ mode, toggleMode, products, productCard, setProducts, newProduct, setNewProduct, addProduct, updateProduct, deleteProduct, setFormForUpdate, handleInputChange, addCart, name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow, incrementQuantity, decrementQuantity, deleteCartItem, totalAmount, cartItems, shipping, grandTotal, order, userData, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, filteredProducts, filteredAllProducts }}>
             {props.children}
         </MyContext.Provider>
     );

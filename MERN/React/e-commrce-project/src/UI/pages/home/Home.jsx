@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../../components/layout/Layout'
 import HeroSection from '../../components/heroSection/HeroSection'
-import Filter from '../../components/filter/Filter'
+// import Filter from '../../components/filter/Filter'
 import ProductCard from '../../components/productCard/ProductCard'
 import Track from '../../components/track/Track'
 import Testimonial from '../../components/testimonial/Testimonial'
 
 
 function Home() {
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <Layout>
             <HeroSection />
-            <Filter />
+            {/* <Filter /> */}
             <ProductCard />
             <Track />
             <Testimonial />
