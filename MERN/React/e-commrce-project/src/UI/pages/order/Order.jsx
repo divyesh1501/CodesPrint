@@ -1,74 +1,80 @@
-import React, { useContext } from 'react'
-import myContext from '../../context/data/myContext'
-import Layout from '../../components/layout/Layout'
+import React, { useContext, useEffect, useState } from 'react';
+import myContext from '../../context/data/myContext';
+import Layout from '../../components/layout/Layout';
 
 function Order() {
-  // const userid = JSON.parse(localStorage.getItem("user")).userId
-  const context = useContext(myContext)
-  const { mode, order } = context
+  const context = useContext(myContext);
+  const { mode, order } = context;
   console.log("🚀 ~ Order ~ order:", order)
+  const [userOrders, setUserOrders] = useState([]);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const orderData = JSON.parse(localStorage.getItem('orders'));
+
+    if (userData && userData.email && orderData) {
+      const filteredOrders = orderData.filter(item => item.email === userData.email);
+      console.log("🚀 ~ useEffect ~ filteredOrders:", filteredOrders)
+      setUserOrders(filteredOrders);
+    }
+  }, [order]); // Re-run the effect when `order` changes
+
   return (
     <Layout>
-      <> <div className=" h-full pt-10">
-        <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
-          {order.length > 0 ? (
-            order.map((item, index) => (
-              <div key={index} className="rounded-lg md:w-2/3">
-                <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start" style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
-                  {/* <img src={item.cartItems.image} alt="product-img" className="w-full rounded-lg sm:w-40" /> */}
-                  <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                    <div className="mt-5 sm:mt-0">
-                      <h2 className="text-lg font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.addressInfo.name}</h2>
-                      <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.email}</p>
-                      <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.addressInfo.phoneNumber}</p>
-                      <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.date}</p>
-                    </div>
+      <div className="h-full pt-10">
+        <div className="mx-auto max-w-5xl justify-center px-6 md:space-x-6 xl:px-0">
+          {userOrders.length > 0 ? (
+            userOrders.map((item, index) => (
+              <div key={index} className="rounded-lg mb-6">
+                <div>
+                  <div
+                    className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 p-6 shadow-md rounded-lg"
+                    style={{
+                      backgroundColor: mode === 'dark' ? '#282c34' : 'white',
+                      color: mode === 'dark' ? 'white' : 'black'
+                    }}
+                  >
+                    {item.cartItems.map((cartItem, cartIndex) => (
+                      <div key={cartIndex}>
+                        <div className="flex flex-col">
+                          <div>
+                            <img
+                              alt="Product"
+                              className="lg:w-1/2 w-full h-auto object-cover object-center rounded"
+                              src={cartItem.image}
+                            />
+                          </div>
+                          <div className="flex flex-col items-start">
+                            <h2 className="text-lg font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                              {cartItem.title}
+                            </h2>
+                            <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                              {cartItem.category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                            </p>
+                            <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                              Price: ₹ {cartItem.price}
+                            </p>
+                            <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                              Payment Id: {item.paymentId}
+                            </p>
+                            <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                              Quantity: {cartItem.quantity}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             ))
           ) : (
-            <p>No items in the cart.</p>
+            <p className='text-center text-2xl font-bold'>No Orders</p>
           )}
         </div>
-
       </div>
-      </>
-
-      <h2 className=' text-center tex-2xl text-white'>Not Order</h2>
-
     </Layout>
-  )
+  );
 }
 
-export default Order
-
-
-// import React, { useContext } from 'react';
-// import myContext from '../../context/data/myContext';
-
-// function Order() {
-//   const { order } = useContext(myContext);
-
-
-
-//   console.log('Order:', order);
-
-//   return (
-//     <div>
-//       {order.length > 0 ? (
-//         order.map((item, index) => (
-//           <div key={index}>
-//             <p>Item: {item.addressInfo.name}</p>
-//             <p>Quantity: {item.addressInfo.phoneNumber}</p>
-//             <p>Price: {item.date}</p>
-//           </div>
-//         ))
-//       ) : (
-//         <p>No items in the cart.</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default Order;
+export default Order;

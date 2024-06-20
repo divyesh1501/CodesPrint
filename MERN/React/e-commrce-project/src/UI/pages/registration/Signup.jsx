@@ -14,7 +14,13 @@ function Signup() {
     const onSubmit = async (data) => {
         try {
             // Retrieve existing cookie data
-            const existingData = cookies.formData || {};
+            const existingCookieData = cookies.formData || {};
+
+            // Retrieve existing localStorage data
+            const existingLocalStorageData = JSON.parse(localStorage.getItem('formData')) || {};
+
+            // Combine existing data
+            const existingData = { ...existingLocalStorageData, ...existingCookieData };
 
             // Check if email already exists
             if (existingData[data.email]) {
@@ -28,7 +34,7 @@ function Signup() {
             // Set updated data in cookies
             setCookie('formData', updatedData, { path: '/' });
 
-            // Set data in localStorage
+            // Set updated data in localStorage
             localStorage.setItem('formData', JSON.stringify(updatedData));
 
             // Show success message
@@ -149,4 +155,3 @@ function Signup() {
 }
 
 export default Signup;
-

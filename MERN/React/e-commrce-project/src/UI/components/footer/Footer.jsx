@@ -1,8 +1,8 @@
-// import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import myContext from '../../context/data/myContext'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa6'
+import one5 from "./favicon.ico";
 
 export default function Footer() {
   const context = useContext(myContext)
@@ -64,7 +64,8 @@ export default function Footer() {
         <div className="container px-3 py-3 mx-auto flex items-center sm:flex-row flex-col" >
           <Link to={'/'} className='flex no-underline'>
             <div className="flex ">
-              <h1 className=' text-2xl font-bold text-pink-600  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>One5</h1>
+              <img src={one5} alt="logo" srcset="" />
+              {/* <h1 className=' text-2xl font-bold text-pink-600  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>One5</h1> */}
             </div>
           </Link>
           <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4" style={{ color: mode === 'dark' ? 'white' : '' }}>&copy; 2023 One5 —

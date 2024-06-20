@@ -9,6 +9,7 @@ import { useCookies } from 'react-cookie';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { FaCartShopping } from 'react-icons/fa6';
+import one5 from "./favicon.ico";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -148,7 +149,8 @@ function Navbar() {
                 <div className="ml-4 flex lg:ml-0">
                   <Link to={'/'} className='flex no-underline'>
                     <div className="flex">
-                      <h1 className='text-2xl font-bold text-pink-600 px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '' }}>One5</h1>
+                      <img src={one5} alt="logo" srcset="" />
+                      {/* <h1 className='text-2xl font-bold text-pink-600 px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '' }}>One5</h1> */}
                     </div>
                   </Link>
                 </div>

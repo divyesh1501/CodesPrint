@@ -3,6 +3,7 @@ import MyContext from './myContext';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, deleteFromCart, updateQuantity } from '../../redux/cartSlice';
+import RatingStars from "../../components/ratingstar/RatingStars";
 
 function MyState(props) {
     const [mode, setMode] = useState('light');
@@ -298,6 +299,21 @@ function MyState(props) {
             return;
         }
 
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) {
+            toast.error("User data is missing. Please log in again.", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            return;
+        }
+
         const addressInfo = {
             name,
             address,
@@ -310,7 +326,6 @@ function MyState(props) {
             }),
         };
 
-        // Assuming you are integrating Razorpay
         const options = {
             key: "rzp_test_5KDsYH6StZ89gb", // Your Razorpay key
             key_secret: "Pu6YvA4bNocPAHtIbA1rSxti",
@@ -321,8 +336,8 @@ function MyState(props) {
             name: "One5",
             description: "Order description",
             prefill: {
-                name: JSON.parse(localStorage.getItem("user")).name,
-                email: JSON.parse(localStorage.getItem("user")).email,
+                name: user.name,
+                email: user.email,
                 contact: phoneNumber,
             },
             theme: {
@@ -341,32 +356,25 @@ function MyState(props) {
                         day: "2-digit",
                         year: "numeric",
                     }),
-                    email: JSON.parse(localStorage.getItem("user")).email,
-                    name: JSON.parse(localStorage.getItem("user")).name,
+                    email: user.email,
+                    name: user.name,
                     paymentId,
                 };
 
-                // Retrieve existing orders from localStorage
                 let orders = JSON.parse(localStorage.getItem('orders')) || [];
-                // Append the new orderInfo to the orders array
                 orders.push(orderInfo);
-                // Store the updated orders array back in localStorage
                 localStorage.setItem('orders', JSON.stringify(orders));
 
-                // Handle order submission to your backend or storage
                 console.log('OrderInfo:', orderInfo);
 
-                // Remove items from cart after successful payment
                 cartItems.forEach(item => {
                     dispatch(deleteFromCart({ id: item.id }));
                 });
 
-                // Notify user that order has been placed
                 toast.success('Your order has been placed!', {
                     autoClose: 4000,
                 });
 
-                // Reset form fields
                 setName("");
                 setAddress("");
                 setPincode("");
@@ -377,6 +385,7 @@ function MyState(props) {
         var razorpay = new window.Razorpay(options);
         razorpay.open();
     };
+
 
     // ============get-order============================
     const [order, setOrder] = useState([]);
@@ -424,27 +433,33 @@ function MyState(props) {
 
     // ===============homepage-filter===========================
     const filteredProducts = productCard.filter((obj) => {
-        const matchesSearchKey = searchkey ? obj.title.toLowerCase().includes(searchkey.toLowerCase()) : true;
+        const matchesSearchKey = searchkey ?
+            (obj.title.toLowerCase().includes(searchkey.toLowerCase()) ||
+                obj.category.toLowerCase().includes(searchkey.toLowerCase())) : true;
         const matchesFilterType = filterType ? obj.category.toLowerCase() === filterType.toLowerCase() : true;
         const matchesFilterPrice = filterPrice ? obj.price <= filterPrice : true;
         return matchesSearchKey && matchesFilterType && matchesFilterPrice;
     });
-    
+
 
     // ===============allproduct-filter===========================
     const filteredAllProducts = products.filter((obj) => {
-        const matchesSearchKey = searchkey ? obj.title.toLowerCase().includes(searchkey.toLowerCase()) : true;
+        const matchesSearchKey = searchkey ?
+            (obj.title.toLowerCase().includes(searchkey.toLowerCase()) ||
+                obj.category.toLowerCase().includes(searchkey.toLowerCase())) : true;
         const matchesFilterType = filterType ? obj.category.toLowerCase() === filterType.toLowerCase() : true;
         const matchesFilterPrice = filterPrice ? obj.price <= filterPrice : true;
         return matchesSearchKey && matchesFilterType && matchesFilterPrice;
     });
-    
+
 
     return (
         <MyContext.Provider value={{ mode, toggleMode, products, productCard, setProducts, newProduct, setNewProduct, addProduct, updateProduct, deleteProduct, setFormForUpdate, handleInputChange, addCart, name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow, incrementQuantity, decrementQuantity, deleteCartItem, totalAmount, cartItems, shipping, grandTotal, order, userData, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, filteredProducts, filteredAllProducts }}>
             {props.children}
+            <RatingStars />
         </MyContext.Provider>
     );
 }
 
 export default MyState;
+
