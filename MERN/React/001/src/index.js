@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 // components takes precedence over default styles.
 import 'bootstrap/dist/css/bootstrap.css';
 import './03-01/ReactPortal/modal.css'
+// import CounterContext from './22-05/CounterContext';
 // import './index.css'
 
 // import Modal from './03-01/ReactPortal/Modal';
@@ -25,11 +26,11 @@ import './03-01/ReactPortal/modal.css'
 // import RegistrForm from './23-05/FormValidation/RegisterForm';
 // import Form from './23-05/FormValidation/Form';
 // import RouterExapmle from './23-05/Router/RouterExample'
-// import UseReducerEx from './23-05/UseReducerEx';
+import UseReducerEx from './23-05/UseReducerEx';
 // import UseReducer from './23-05/UseReducer';
 // import Acontext from './22-05/Acontext';
 // import MultipleReturn from './22-05/MultipleReturn';
-import Fetch from './22-05/Fetch';
+// import Fetch from './22-05/Fetch';
 // import UseEffect from './22-05/UseEffect';
 // import Form from './22-05/Form'
 // import Data from './22-05/Data';
@@ -45,11 +46,11 @@ root.render(
     {/* <Data /> */}
     {/* <Form /> */}
     {/* <UseEffect /> */}
-    <Fetch />
+    {/* <Fetch /> */}
     {/* <MultipleReturn /> */}
     {/* <Acontext /> */}
     {/* <UseReducer /> */}
-    {/* <UseReducerEx /> */}
+    <UseReducerEx />
     {/* <RouterExapmle /> */}
     {/* <Form /> */}
     {/* <UseState /> */}
@@ -68,6 +69,7 @@ root.render(
     {/* <ContextAPI /> */}
     {/* <Product /> */}
     {/* <Modal /> */}
+    {/* <CounterContext /> */}
   </React.StrictMode>
 );
 

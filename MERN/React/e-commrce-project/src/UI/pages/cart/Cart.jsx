@@ -7,23 +7,28 @@ import myContext from '../../context/data/myContext';
 
 function Cart() {
   const context = useContext(myContext);
-  const { mode, incrementQuantity, decrementQuantity, deleteCartItem, totalAmount, cartItems, shipping, grandTotal } = context;
+  const { mode, incrementQuantity, decrementQuantity, deleteCartItem, totalAmount, cartItems, shipping, grandTotal, cartData } = context;
+  console.log("🚀 ~ Cart ~ cartData:", cartData)
 
   const cartItemStyle = {
     backgroundColor: mode === 'dark' ? '#282c34' : '',
     color: mode === 'dark' ? 'white' : ''
   };
 
+  const userData = JSON.parse(localStorage.getItem('user'));
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [])
+
+  // Check if the userData and cartData email match
+  const isUserCart = userData && cartData && userData.email === cartData.email;
 
   return (
     <Layout>
       <div className="pt-5 mb-[60%] md:mb-3 lg:mb-3" style={cartItemStyle}>
         <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
-        {
-          cartItems.length > 0 ? (
+        {isUserCart && cartItems.length > 0 ? (
             <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
               <div className="rounded-lg md:w-2/3">
                 {cartItems.map((item, index) => (
@@ -41,7 +46,7 @@ function Cart() {
                         <div className="flex items-center mt-2">
                           <button className="decrement px-2 text-xl font-semibold" onClick={() => decrementQuantity(item.id, item.quantity)}><FiMinusCircle /></button>
                           <span className="mx-2 px-3 border-1 rounded border-slate-600">{item.quantity}</span>
-                          <button className="increment px-2 text-xl font-semibold" onClick={() => incrementQuantity(item.id)}><FiPlusCircle /></button>
+                          <button className="increment px-2 text-xl font-semibold" onClick={() => incrementQuantity(item.id, item.quantity)}><FiPlusCircle /></button>
                         </div>
                       </div>
                       <div onClick={() => deleteCartItem(item.id)} className="mt-4 flex justify-between sm:space-y-6 text-2xl sm:mt-0 sm:block sm:space-x-6" style={cartItemStyle}>
@@ -80,5 +85,8 @@ function Cart() {
 }
 
 export default Cart;
+
+
+
 
 

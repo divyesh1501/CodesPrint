@@ -1,5 +1,6 @@
 import React, { createContext } from 'react'
 import Bcontext from './Bcontext '
+import Ccontext from './Ccontext';
 
 const GreetContext = createContext();
 
@@ -11,8 +12,9 @@ function Acontext() {
     return (
         <>
             <GreetContext.Provider value={{ greet, greet1 }}>
-                <Bcontext />
-                <h1 className='text-red-500'>hello</h1>
+                <Ccontext />
+                {/* <Bcontext /> */}
+                {/* <h1 className='text-red-500'>hello</h1> */}
             </GreetContext.Provider>
         </>
     )

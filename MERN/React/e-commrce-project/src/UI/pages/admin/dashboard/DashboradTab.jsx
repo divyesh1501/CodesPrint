@@ -140,10 +140,7 @@ function DashboardTab() {
                                                 );
                                             })}
                                         </tbody>
-
-
                                     </table>
-
                                 </div>
                             </div>
                         </TabPanel>

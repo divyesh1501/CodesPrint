@@ -3,7 +3,6 @@ import MyContext from './myContext';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, deleteFromCart, updateQuantity } from '../../redux/cartSlice';
-import RatingStars from "../../components/ratingstar/RatingStars";
 
 function MyState(props) {
     const [mode, setMode] = useState('light');
@@ -234,10 +233,30 @@ function MyState(props) {
         });
     };
 
+    // useEffect(() => {
+    //     localStorage.setItem('cart', JSON.stringify(cartItems));
+    // }, [cartItems]);
+
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cartItems));
+        const currentUser = JSON.parse(localStorage.getItem('user')) || {};
+        const updatedCart = {
+            ...currentUser,
+            cartItems
+        };
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        console.log("🚀 ~ useEffect ~ updatedCart:", updatedCart)
     }, [cartItems]);
 
+    const [cartData, setCartData] = useState({});
+    useEffect(() => {
+        // Retrieve the cart data from localStorage when the component mounts
+        const savedCart = JSON.parse(localStorage.getItem('cart')) || {};
+        setCartData(savedCart);
+        console.log("🚀 ~ useEffect ~ savedCart:", savedCart);
+    }, []);
+
+
+    
     // ===============deleteCart===================
     const deleteCartItem = (id) => {
         dispatch(deleteFromCart({ id }));
@@ -454,9 +473,8 @@ function MyState(props) {
 
 
     return (
-        <MyContext.Provider value={{ mode, toggleMode, products, productCard, setProducts, newProduct, setNewProduct, addProduct, updateProduct, deleteProduct, setFormForUpdate, handleInputChange, addCart, name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow, incrementQuantity, decrementQuantity, deleteCartItem, totalAmount, cartItems, shipping, grandTotal, order, userData, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, filteredProducts, filteredAllProducts }}>
+        <MyContext.Provider value={{ mode, toggleMode, products, productCard, setProducts, newProduct, setNewProduct, addProduct, updateProduct, deleteProduct, setFormForUpdate, handleInputChange, addCart, name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow, incrementQuantity, decrementQuantity, deleteCartItem, totalAmount, cartItems, shipping, grandTotal, order, userData, searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice, filteredProducts, filteredAllProducts, cartData }}>
             {props.children}
-            <RatingStars />
         </MyContext.Provider>
     );
 }

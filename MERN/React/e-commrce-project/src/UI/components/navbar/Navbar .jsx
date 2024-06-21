@@ -14,7 +14,7 @@ import one5 from "./favicon.ico";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const context = useContext(myContext);
-  const { mode, toggleMode } = context;
+  const { mode, toggleMode, cartData } = context;
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function Navbar() {
     }
   };
 
-  const cartItem = useSelector((state) => state.cart)
+  const cartItems = useSelector((state) => state.cart);
 
   return (
     <>
@@ -209,15 +209,18 @@ function Navbar() {
                   </div>
 
                   {/* Cart */}
-                  {cookies.user ? (
+                  {cookies.user && (
                     <div className="ml-4 flow-root lg:ml-6">
                       <Link to={'/cart'} className="group -m-2 flex items-center p-2 text-xl text-gray-800 no-underline" style={{ color: mode === 'dark' ? 'white' : '' }}>
                         <FaCartShopping />
-                        <span className="ml-2 text-sm font-medium text-red-500 underline" style={{ color: mode === 'dark' ? 'white' : '' }}>{cartItem.length}</span>
-                        <span className="sr-only">items in cart, view bag</span>
+                        {cookies.user.email === cartData.email && (
+                          <span className="ml-2 text-sm font-medium text-red-500 underline" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                            {cartItems.length}
+                          </span>
+                        )}
                       </Link>
                     </div>
-                  ) : ""}
+                  )}
 
                 </div>
               </div>
@@ -230,3 +233,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

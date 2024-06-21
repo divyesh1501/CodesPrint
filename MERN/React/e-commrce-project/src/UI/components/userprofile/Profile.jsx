@@ -14,6 +14,7 @@ export default function Profile() {
 
     const logoutHandler = () => {
         removeCookies('user');
+        localStorage.removeItem('user');
         toast.error('You have been logged out!',{
             autoClose: 3000,
         });

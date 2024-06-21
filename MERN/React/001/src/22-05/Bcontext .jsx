@@ -4,7 +4,7 @@ import Ccontext from './Ccontext'
 function Bcontext(props) {
   return (
     <>
-      <Ccontext />
+      {/* <Ccontext /> */}
     </>
   )
 }
