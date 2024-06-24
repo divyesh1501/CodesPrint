@@ -56,11 +56,10 @@ function MyState(props) {
     }, []);
 
     const fetchLimitedProducts = () => {
-        fetch('https://fakestoreapi.com/products')
+        fetch('https://fakestoreapi.com/products?limit=4')
             .then(response => response.json())
             .then(data => {
-                const limitedProducts = data.slice(0, 4);
-                setProductCard(limitedProducts);
+                setProductCard(data);
             })
             .catch(error => console.error('Error fetching products:', error));
     };

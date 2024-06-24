@@ -12,41 +12,68 @@ function Signup() {
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = async (data) => {
+        const userData = {
+            email: data.email,
+            username: data.username,
+            password: data.password,
+            name: {
+                firstname: data.firstname,
+                lastname: data.lastname
+            },
+            address: {
+                city: data.city,
+                street: data.street,
+                number: data.number,
+                zipcode: data.zipcode,
+                geolocation: {
+                    lat: data.lat,
+                    long: data.long
+                }
+            },
+            phone: data.phone
+        };
+
         try {
-            // Retrieve existing cookie data
-            const existingCookieData = cookies.formData || {};
+            const response = await fetch('https://fakestoreapi.com/users', {
+                method: "POST",
+                body: JSON.stringify(userData),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            });
 
-            // Retrieve existing localStorage data
-            const existingLocalStorageData = JSON.parse(localStorage.getItem('formData')) || {};
-
-            // Combine existing data
-            const existingData = { ...existingLocalStorageData, ...existingCookieData };
-
-            // Check if email already exists
-            if (existingData[data.email]) {
-                toast.error('Email already registered!', { autoClose: 3000 });
-                return;
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
 
-            // Merge new data with existing data
-            const updatedData = { ...existingData, [data.email]: data };
+            const result = await response.json();
+            console.log("🚀 ~ onSubmit ~ result:", result)
 
-            // Set updated data in cookies
-            setCookie('formData', updatedData, { path: '/' });
+            // Retrieve existing users from localStorage
+            let existingUsers = JSON.parse(localStorage.getItem('user-info'));
 
-            // Set updated data in localStorage
-            localStorage.setItem('formData', JSON.stringify(updatedData));
+            // If no existing users, initialize as an empty array
+            if (!existingUsers) {
+                existingUsers = [];
+            }
 
-            // Show success message
-            toast.success('Registration successful!', { autoClose: 3000 });
+            // Merge the response data (ID) with the submitted user data
+            const newUser = { ...userData, id: result.id };
 
-            // Reset the form after submission
+            // Add the new user to the existing users
+            existingUsers.push(newUser);
+
+            // Save the updated users list to localStorage
+            localStorage.setItem('user-info', JSON.stringify(existingUsers));
+
+            toast.success('User registered successfully!', { autoClose: 3000 });
             reset();
         } catch (error) {
-            console.error('Error during registration:', error);
-            toast.error('Error during registration', { autoClose: 3000 });
+            toast.error(`Error: ${error.message}`, { autoClose: 3000 });
         }
     };
+
 
     const handleErrors = (errors) => {
         for (const error in errors) {
@@ -69,18 +96,27 @@ function Signup() {
                         <div>
                             <input
                                 type='text'
-                                name='name'
-                                placeholder='Name'
-                                {...register('name', { required: 'Name is Required' })}
+                                name='firstname'
+                                placeholder='First Name'
+                                {...register('firstname', { required: 'First Name is Required' })}
                                 className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
                             />
                         </div>
                         <div>
                             <input
                                 type='text'
-                                name='userId'
-                                placeholder='User ID'
-                                {...register('userId', { required: 'User ID is Required' })}
+                                name='lastname'
+                                placeholder='Last Name'
+                                {...register('lastname', { required: 'Last Name is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='text'
+                                name='username'
+                                placeholder='Username'
+                                {...register('username', { required: 'Username is Required' })}
                                 className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
                             />
                         </div>
@@ -126,15 +162,67 @@ function Signup() {
                             </button>
                         </div>
                         <div>
-                            <select
-                                name='userType'
-                                {...register('userType', { required: 'User type is required' })}
+                            <input
+                                type='text'
+                                name='city'
+                                placeholder='City'
+                                {...register('city', { required: 'City is Required' })}
                                 className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
-                            >
-                                <option value=''>Select User Type</option>
-                                <option value='admin'>Admin</option>
-                                <option value='user'>User</option>
-                            </select>
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='text'
+                                name='street'
+                                placeholder='Street'
+                                {...register('street', { required: 'Street is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='number'
+                                name='number'
+                                placeholder='Number'
+                                {...register('number', { required: 'Number is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='text'
+                                name='zipcode'
+                                placeholder='Zip Code'
+                                {...register('zipcode', { required: 'Zip Code is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='text'
+                                name='lat'
+                                placeholder='Latitude'
+                                {...register('lat', { required: 'Latitude is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='text'
+                                name='long'
+                                placeholder='Longitude'
+                                {...register('long', { required: 'Longitude is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type='text'
+                                name='phone'
+                                placeholder='Phone'
+                                {...register('phone', { required: 'Phone is Required' })}
+                                className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-400 outline-none'
+                            />
                         </div>
                         <div className='flex justify-center mb-3'>
                             <button

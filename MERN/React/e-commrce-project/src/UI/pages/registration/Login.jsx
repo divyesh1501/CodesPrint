@@ -5,41 +5,68 @@ import { useCookies } from 'react-cookie';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Profile from '../../components/userprofile/Profile';
 
 function Login() {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [cookies, setCookie] = useCookies(['formData', 'user']);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const [token, setToken] = useState('');
 
-    const onSubmit = (data) => {
-        // Check for existing logged-in user
-        if (cookies.user) {
-            toast.warning('User already logged in!', {
-                autoClose: 3000,
+    function fetchDataAndStore() {
+        fetch('https://fakestoreapi.com/users')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                // Store in localStorage
+                localStorage.setItem('user', JSON.stringify(data));
+
+                // Store in cookies (as a string)
+                setCookie('user', JSON.stringify(data), { path: '/' });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Call the function
+    fetchDataAndStore();
+
+    const onSubmit = async (data) => {
+        const userData = {
+            username: data.username,
+            password: data.password,
+        };
+
+        try {
+            const response = await fetch('https://fakestoreapi.com/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(userData),
             });
-            return;
-        }
 
-        // Retrieve data from localStorage
-        const formData = JSON.parse(localStorage.getItem('formData'));
+            if (!response.ok) {
+                throw new Error('Login failed');
+            }
 
-        if (formData && formData[data.email] && formData[data.email].password === data.password) {
-            toast.success('Login successful!', {
-                autoClose: 3000,
-            });
+            const result = await response.json();
 
-            // Set the user cookie
-            setCookie('user', formData[data.email], { path: '/' });
+            // Storing user details and token in localStorage
+            // localStorage.setItem('user', JSON.stringify(result.user));
+            localStorage.setItem('token', result.token);
 
-            // Set the user data in localStorage
-            localStorage.setItem('user', JSON.stringify(formData[data.email]));
+            // Storing user details and token in cookies
+            // setCookie('user', JSON.stringify(result.user), { path: '/' });
+            setCookie('token', result.token, { path: '/' });
 
-            navigate('/'); // Redirect to home or any other protected route
-        } else {
-            toast.error('Email or password is incorrect', {
-                autoClose: 3000,
-            });
+            toast.success('Log in successfully!', { autoClose: 3000 });
+            setToken(result.token); // Assuming the token is part of the response
+            reset();
+        } catch (error) {
+            toast.error(`Error: ${error.message}`, { autoClose: 3000 });
         }
     };
 
@@ -57,6 +84,7 @@ function Login() {
 
     return (
         <Layout>
+            {/* <Profile token={token} /> */}
             <div className='container px-3 py-5 mx-auto flex justify-center items-center'>
                 <div className='bg-gray-800 px-3 py-10 rounded-xl'>
                     <form onSubmit={handleSubmit(onSubmit, handleErrors)} className='form'>
@@ -65,16 +93,12 @@ function Login() {
                         </div>
                         <div>
                             <input
-                                type="email"
-                                name='email'
+                                type="text"
+                                name='username'
                                 className='bg-gray-600 mb-4 px-2 py-2 w-full rounded-lg text-white placeholder:text-gray-200 outline-none'
-                                placeholder='Email'
-                                {...register('email', {
-                                    required: 'Email is required',
-                                    pattern: {
-                                        value: /\S+@\S+\.\S+/,
-                                        message: 'Entered value does not match email format'
-                                    }
+                                placeholder='Username'
+                                {...register('username', {
+                                    required: 'Username is required',
                                 })}
                             />
                         </div>
@@ -112,6 +136,7 @@ function Login() {
                             <h2 className='text-white'>Don't have an account? <Link className='text-yellow-500 font-bold' to={'/signup'}>Signup</Link></h2>
                         </div>
                     </form>
+                    {token && <p>Token: {token}</p>}
                 </div>
             </div>
         </Layout>
@@ -119,4 +144,3 @@ function Login() {
 }
 
 export default Login;
-
